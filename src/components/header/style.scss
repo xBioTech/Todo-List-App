@@ -1,0 +1,16 @@
+$header-color: #3498db;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $header-color;
+  color: white;
+  .header-left {
+    display: flex;
+    margin-left: 0.5rem;
+    .app-logo {
+      max-width: 30%;
+    }
+  }
+}
