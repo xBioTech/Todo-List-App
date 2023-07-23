@@ -1,6 +1,35 @@
+$text-color: #757575;
+
 .home {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: $text-color;
+
+  .headline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    .main-home-icon {
+      max-width: 55%;
+    }
+  }
+  .home-btn-div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $text-color;
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: center;
+
+    p {
+      width: 250px;
+    }
+    .main-plus-icon {
+      max-width: 10%;
+      cursor: pointer;
+    }
+  }
 }
