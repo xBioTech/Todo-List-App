@@ -1,0 +1,33 @@
+$text-color: #757575;
+
+.week-main-content {
+  color: $text-color;
+
+  .headline-container-week {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+
+    .week-main-icon {
+      max-width: 15%;
+    }
+  }
+
+  .task-headline-div {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid $text-color;
+    max-width: 70%;
+    margin: 2rem auto 0 auto;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin-top: 1.2rem;
+  }
+}
