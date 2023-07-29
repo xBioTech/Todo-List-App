@@ -4,7 +4,7 @@ import plusIcon from "../../assets/plus-circle.svg";
 function createHome() {
   const contentDiv = document.getElementById("content");
   const homeDiv = document.createElement("div");
-  homeDiv.classList.add("home");
+  homeDiv.classList.add("main-content", "home");
 
   const homeHeadlineContainer = document.createElement("div");
   homeHeadlineContainer.classList.add("headline-container");

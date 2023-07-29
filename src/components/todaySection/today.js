@@ -3,7 +3,7 @@ import todayIcon from "../../assets/calendar-today.svg";
 function createToday() {
   const contentDiv = document.getElementById("content");
   const todayDiv = document.createElement("div");
-  todayDiv.classList.add("today-main-content");
+  todayDiv.classList.add("main-content");
 
   const headlineContainer = document.createElement("div");
   headlineContainer.classList.add("headline-container-today");

@@ -3,7 +3,7 @@ import weekIcon from "../../assets/calendar-week.svg";
 function createWeek() {
   const contentDiv = document.getElementById("content");
   const weekDiv = document.createElement("div");
-  weekDiv.classList.add("week-main-content");
+  weekDiv.classList.add("main-content");
 
   const headlineContainer = document.createElement("div");
   headlineContainer.classList.add("headline-container-week");
