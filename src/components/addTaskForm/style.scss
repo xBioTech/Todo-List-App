@@ -1,0 +1,62 @@
+$text-color: #757575;
+$header-color: #3498db;
+$bg-color: #ffffff;
+
+form {
+  background-color: $bg-color;
+  color: $text-color;
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem 0 2rem;
+  }
+  .form-header-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: $header-color;
+    color: white;
+    padding: 0 2rem 0 2rem;
+
+    .form-img {
+      max-width: 10%;
+      cursor: pointer;
+    }
+  }
+
+  input {
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid $text-color;
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      outline: none;
+      border: 1px solid $header-color;
+      border-radius: 4px;
+    }
+  }
+
+  textarea {
+    border: 1px solid $text-color;
+    border-radius: 4px;
+    outline: none;
+    resize: none;
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      outline: none;
+      border: 1px solid $header-color;
+      border-radius: 4px;
+    }
+  }
+
+  select {
+    border: 1px solid $text-color;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      outline: none;
+      border: 1px solid $header-color;
+      border-radius: 4px;
+    }
+  }
+}

@@ -5,8 +5,11 @@ import "./components/nav/style.scss";
 import "./components/homeSection/style.scss";
 import "./components/todaySection/style.scss";
 import "./components/weekSection/style.scss";
+import "./components/addTaskForm/style.scss";
 import firstPageLoad from "./functions/firstPageLoad";
 import switchTabs from "./functions/switchTabs";
+import createAddTaskForm from "./components/addTaskForm/addTaskForm";
 
 firstPageLoad();
 switchTabs();
+createAddTaskForm();
