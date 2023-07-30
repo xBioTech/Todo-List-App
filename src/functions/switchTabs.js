@@ -10,14 +10,17 @@ function switchTabs() {
 
   homeLi.addEventListener("click", () => {
     clearContent();
+    createHome();
   });
 
   todayLi.addEventListener("click", () => {
     clearContent();
+    createToday();
   });
 
   weekLi.addEventListener("click", () => {
     clearContent();
+    createWeek();
   });
 }
 

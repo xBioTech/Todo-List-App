@@ -1,8 +1,6 @@
 function clearContent() {
   const mainContentDiv = document.querySelector(".main-content");
-  while (mainContentDiv.firstChild) {
-    mainContentDiv.removeChild(mainContentDiv.firstChild);
-  }
+  mainContentDiv.remove();
 }
 
 export default clearContent;
