@@ -1,6 +1,10 @@
-function clearContent() {
+function clearMainContent() {
   const mainContentDiv = document.querySelector(".main-content");
   mainContentDiv.remove();
 }
 
-export default clearContent;
+function removeAddTaskFormContent() {
+  const form = document.querySelector(".add-task-form");
+  form.remove();
+}
+export { clearMainContent, removeAddTaskFormContent };

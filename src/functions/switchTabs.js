@@ -1,7 +1,8 @@
 import createHome from "../components/homeSection/home";
 import createToday from "../components/todaySection/today";
 import createWeek from "../components/weekSection/thisWeek";
-import clearContent from "./clearContent.js";
+import { clearMainContent } from "./clearContent";
+import attachEventListenersForAddTaskForm from "./eventHandler";
 
 function switchTabs() {
   const homeLi = document.querySelector(".home-li");
@@ -9,17 +10,18 @@ function switchTabs() {
   const weekLi = document.querySelector(".week-li");
 
   homeLi.addEventListener("click", () => {
-    clearContent();
+    clearMainContent();
     createHome();
+    attachEventListenersForAddTaskForm();
   });
 
   todayLi.addEventListener("click", () => {
-    clearContent();
+    clearMainContent();
     createToday();
   });
 
   weekLi.addEventListener("click", () => {
-    clearContent();
+    clearMainContent();
     createWeek();
   });
 }

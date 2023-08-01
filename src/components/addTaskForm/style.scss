@@ -2,13 +2,23 @@ $text-color: #757575;
 $header-color: #3498db;
 $bg-color: #ffffff;
 
+#content {
+  position: relative;
+}
+
 form {
   background-color: $bg-color;
   color: $text-color;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   .flex-container {
     display: flex;
     flex-direction: column;
-    padding: 0 2rem 0 2rem;
+    padding: 2rem 2rem 2rem 2rem;
   }
   .form-header-container {
     display: flex;
@@ -16,6 +26,7 @@ form {
     background-color: $header-color;
     color: white;
     padding: 0 2rem 0 2rem;
+    border-radius: 5px 5px 0 0;
 
     .form-img {
       max-width: 10%;
