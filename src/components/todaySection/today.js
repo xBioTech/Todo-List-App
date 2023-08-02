@@ -33,6 +33,7 @@ function createToday() {
   taskDiv.classList.add("tasks");
 
   const taskUl = document.createElement("ul");
+  taskUl.classList.add("today-ul");
 
   taskDiv.appendChild(taskUl);
 
