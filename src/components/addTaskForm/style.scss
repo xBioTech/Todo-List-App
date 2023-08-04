@@ -15,10 +15,22 @@ form {
   transform: translate(-50%, -50%);
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-size: 1.4rem;
   .flex-container {
     display: flex;
     flex-direction: column;
     padding: 2rem 2rem 2rem 2rem;
+
+    .form-btn {
+      color: white;
+      background-color: $header-color;
+      border-radius: 5px;
+      border: none;
+      margin-top: 2rem;
+      padding: 0.5rem 0;
+      font-weight: 700;
+      cursor: pointer;
+    }
   }
   .form-header-container {
     display: flex;
@@ -27,6 +39,7 @@ form {
     color: white;
     padding: 0 2rem 0 2rem;
     border-radius: 5px 5px 0 0;
+    font-size: 1rem;
 
     .form-img {
       max-width: 10%;

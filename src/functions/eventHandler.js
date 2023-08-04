@@ -1,5 +1,6 @@
 import createAddTaskForm from "../components/addTaskForm/addTaskForm";
 import { removeAddTaskFormContent } from "./clearContent";
+import { addTaskToTodoListArray, todoList } from "./addTask";
 
 let isFormOpen = false;
 
@@ -20,6 +21,12 @@ function attachEventListenersForAddTaskForm() {
       removeAddTaskFormContent();
       isFormOpen = false;
     });
+    const formBtn = document.querySelector(".form-btn");
+    formBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      addTaskToTodoListArray();
+    });
   });
 }
+
 export default attachEventListenersForAddTaskForm;

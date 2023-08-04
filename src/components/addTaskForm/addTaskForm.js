@@ -94,6 +94,11 @@ function createAddTaskForm() {
   selectPriority.appendChild(optionLowPriority);
   flexContainer.appendChild(selectPriority);
 
+  const formBtn = document.createElement("button");
+  formBtn.classList.add("form-btn");
+  formBtn.textContent = "Add Task";
+  flexContainer.appendChild(formBtn);
+
   form.appendChild(flexContainer);
 
   contentDiv.appendChild(form);

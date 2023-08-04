@@ -9,9 +9,7 @@ class Task {
   }
 }
 
-function addTaskToTodoListArray(e) {
-  e.preventDefault();
-
+function addTaskToTodoListArray() {
   const formTitleInput = document.getElementById("title");
   const formDescriptionInput = document.getElementById("description");
   const formDuedateInput = document.getElementById("duedate");
@@ -22,9 +20,22 @@ function addTaskToTodoListArray(e) {
   const duedate = formDuedateInput.value;
   const priority = formPriorityInput.value;
 
-  const newTask = new Task(title, description, duedate, priority);
+  if (title === "") {
+    formTitleInput.setCustomValidity(
+      "to Add a new Task you need to give the task a title",
+    );
+    formTitleInput.reportValidity();
+  } else if (duedate === "") {
+    formDuedateInput.setCustomValidity(
+      "please provide a due Date for the new Task",
+    );
+    formDuedateInput.reportValidity();
+  } else if (title !== "" && duedate !== "") {
+    const newTask = new Task(title, description, duedate, priority);
+    todoList.push(newTask);
+  }
 
-  todoList.push(newTask);
+  console.log(todoList);
 
   formTitleInput.value = "";
   formDescriptionInput.value = "";
@@ -33,3 +44,5 @@ function addTaskToTodoListArray(e) {
 }
 
 function addTaskToUl() {}
+
+export { todoList, addTaskToTodoListArray };
