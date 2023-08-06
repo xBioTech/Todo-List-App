@@ -1,7 +1,7 @@
 import createAddTaskForm from "../components/addTaskForm/addTaskForm";
 import { removeAddTaskFormContent } from "./clearContent";
 import { addTaskToTodoListArray, todoList } from "./addTask";
-import sortTasksByDueDate from "./sortTasksByDueDate";
+import { sortTasks } from "./sortTasksByDueDate";
 
 let isFormOpen = false;
 
@@ -26,7 +26,7 @@ function attachEventListenersForAddTaskForm() {
     formBtn.addEventListener("click", (e) => {
       e.preventDefault();
       addTaskToTodoListArray();
-      sortTasksByDueDate();
+      sortTasks();
     });
   });
 }
