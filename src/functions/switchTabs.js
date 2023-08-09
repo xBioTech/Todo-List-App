@@ -3,6 +3,8 @@ import createToday from "../components/todaySection/today";
 import createWeek from "../components/weekSection/thisWeek";
 import { clearMainContent } from "./clearContent";
 import attachEventListenersForAddTaskForm from "./eventHandler";
+import addTaskToUl from "./addTaskToUl";
+
 
 function switchTabs() {
   const homeLi = document.querySelector(".home-li");
@@ -18,6 +20,7 @@ function switchTabs() {
   todayLi.addEventListener("click", () => {
     clearMainContent();
     createToday();
+   addTaskToUl()
   });
 
   weekLi.addEventListener("click", () => {

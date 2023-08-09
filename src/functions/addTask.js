@@ -43,6 +43,5 @@ function addTaskToTodoListArray() {
   formPriorityInput.value = "";
 }
 
-function addTaskToUl() {}
 
 export { todoList, addTaskToTodoListArray };

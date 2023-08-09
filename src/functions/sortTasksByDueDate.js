@@ -1,4 +1,4 @@
-import { parseISO, isSameDay, isSameWeek, isToday } from "date-fns";
+import { parseISO, isSameDay, isSameWeek, format } from "date-fns";
 import { todoList } from "./addTask";
 
 let todayTasks = [];
@@ -13,8 +13,14 @@ function sortTasks() {
 
   const currentDate = new Date();
 
-  todayTasks = todoList.filter((task) => isToday(task.dueDate, currentDate));
-  weekTasks = todoList.filter((task) => isSameWeek(task.dueDate, currentDate));
+  todayTasks = todoList.filter((task) => isSameDay(task.dueDate, currentDate)).map((task) => ({
+    ...task,
+    dueDate: format(task.dueDate, 'dd/MM/yyyy')
+  }));
+  weekTasks = todoList.filter((task) => isSameWeek(task.dueDate, currentDate)).map((task) => ({
+    ...task,
+    dueDate: format(task.dueDate, 'dd/MM/yyyy')
+  }));
 
   console.log("Today's Tasks:", todayTasks);
   console.log("Week's Tasks:", weekTasks);
