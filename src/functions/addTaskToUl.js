@@ -1,32 +1,28 @@
 import { todoList } from "./addTask";
 import { todayTasks , weekTasks } from "./sortTasksByDueDate";
 
-function addTaskToUl(){
+function addTaskToUl(task){
   
-
     const taskUl = document.querySelector(".task-ul");
 
-    const testLi = document.createElement("li")
-    testLi.classList.add("test-li")
+    const taskLi = document.createElement("li")
+    taskLi.classList.add("task-li")
 
-    const testParagrph = document.createElement("p")
-    testParagrph.textContent = todayTasks[todayTasks.length - 1].title
-    testLi.appendChild(testParagrph)
+    const taskTitleParagrph = document.createElement("p")
+    taskTitleParagrph.textContent = task.title
+    taskLi.appendChild(taskTitleParagrph)
 
-    const testP = document.createElement("p")
-    testP.textContent = todayTasks[todayTasks.length - 1].dueDate
-    testLi.appendChild(testP)
+    const taskDueDateParagraph = document.createElement("p")
+    taskDueDateParagraph.textContent = task.dueDate
+    taskLi.appendChild(taskDueDateParagraph)
 
-    const testButton = document.createElement("button")
-    testButton.textContent = "X"
-    testLi.appendChild(testButton)
-  
+    const taskButton = document.createElement("button")
+    taskButton.textContent = "X"
+    taskLi.appendChild(taskButton)
 
-
-    taskUl.appendChild(testLi)
-
-    
-    
+    taskUl.appendChild(taskLi)
+ 
 }
 
-export default addTaskToUl;
+
+export default addTaskToUl

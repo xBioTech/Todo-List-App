@@ -4,6 +4,7 @@ import createWeek from "../components/weekSection/thisWeek";
 import { clearMainContent } from "./clearContent";
 import attachEventListenersForAddTaskForm from "./eventHandler";
 import addTaskToUl from "./addTaskToUl";
+import { todayTasks , weekTasks } from "./sortTasksByDueDate";
 
 
 function switchTabs() {
@@ -20,12 +21,17 @@ function switchTabs() {
   todayLi.addEventListener("click", () => {
     clearMainContent();
     createToday();
-   addTaskToUl()
+   todayTasks.forEach((task)=>{
+    addTaskToUl(task)
+   })
   });
 
   weekLi.addEventListener("click", () => {
     clearMainContent();
     createWeek();
+    weekTasks.forEach((task)=>{
+      addTaskToUl(task)
+    })
   });
 }
 
