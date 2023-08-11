@@ -7,4 +7,9 @@ function removeAddTaskFormContent() {
   const form = document.querySelector(".add-task-form");
   form.remove();
 }
-export { clearMainContent, removeAddTaskFormContent };
+
+function removeNavOnMobile(){
+  const nav = document.querySelector(".nav")
+  nav.remove()
+}
+export { clearMainContent, removeAddTaskFormContent, removeNavOnMobile };
