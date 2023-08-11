@@ -13,4 +13,4 @@ import toggleNav from "./functions/toggleNav";
 
 firstPageLoad();
 switchTabs();
-toggleNav()
+toggleNav();

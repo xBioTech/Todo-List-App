@@ -1,5 +1,3 @@
-import { todoList } from "./addTask";
-import { todayTasks , weekTasks } from "./sortTasksByDueDate";
 
 function addTaskToUl(task){
   
