@@ -2,7 +2,7 @@ import createHome from "../components/homeSection/home";
 import createToday from "../components/todaySection/today";
 import createWeek from "../components/weekSection/thisWeek";
 import { clearMainContent } from "./clearContent";
-import attachEventListenersForAddTaskForm from "./eventHandler";
+import { attachEventListenersForAddTaskForm } from "./eventHandler";
 import addTaskToUl from "./addTaskToUl";
 import { todayTasks , weekTasks } from "./sortTasksByDueDate";
 

@@ -1,7 +1,9 @@
 import createAddTaskForm from "../components/addTaskForm/addTaskForm";
-import { removeAddTaskFormContent } from "./clearContent";
+import { removeAddTaskFormContent, removeAddProjectForm } from "./clearContent";
 import { addTaskToTodoListArray, todoList } from "./addTask";
 import { sortTasks } from "./sortTasksByDueDate";
+import addProjectForm from "../components/addProjectForm/addProjectForm";
+
 
 let isFormOpen = false;
 
@@ -31,4 +33,24 @@ function attachEventListenersForAddTaskForm() {
   });
 }
 
-export default attachEventListenersForAddTaskForm;
+function attachEventListenersForAddProjectForm(){
+  const projectPlusIcon = document.querySelector(".project-plus-icon");
+
+  projectPlusIcon.addEventListener("click", ()=>{
+    if(isFormOpen){
+      return;
+    }
+
+    addProjectForm();
+    isFormOpen = true;
+
+    const projectFormExitIcon = document.querySelector(".project-form-img");
+
+    projectFormExitIcon.addEventListener("click", ()=>{
+      removeAddProjectForm();
+      isFormOpen = false;
+    });
+  });
+}
+
+export {attachEventListenersForAddTaskForm, attachEventListenersForAddProjectForm};

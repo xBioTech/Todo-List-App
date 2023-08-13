@@ -1,0 +1,39 @@
+$text-color: #757575;
+$header-color: #3498db;
+$bg-color: #ffffff;
+
+
+.add-project-form{
+    width: 100%;
+
+.project-form-header{
+ display: flex;
+ background-color: $header-color;
+ color: white;
+ font-size: 1rem;
+ justify-content: space-between;
+ padding: 0 1rem 0 1rem;
+ border-radius: 5px 5px 0 0;
+
+ .project-form-img{
+    max-width: 10%;
+ }
+}
+
+.project-flex-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem 2rem 4rem;
+
+    .project-form-btn {
+      color: white;
+      background-color: $header-color;
+      border-radius: 5px;
+      border: none;
+      margin-top: 2rem;
+      padding: 0.5rem 0;
+      font-weight: 700;
+      cursor: pointer;
+    }
+}
+}

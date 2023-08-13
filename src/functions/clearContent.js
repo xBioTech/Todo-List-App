@@ -12,4 +12,9 @@ function removeNavOnMobile(){
   const nav = document.querySelector(".nav");
   nav.remove();
 }
-export { clearMainContent, removeAddTaskFormContent, removeNavOnMobile };
+
+function removeAddProjectForm(){
+  const projectForm = document.querySelector(".add-project-form");
+  projectForm.remove();
+}
+export { clearMainContent, removeAddTaskFormContent, removeNavOnMobile, removeAddProjectForm };

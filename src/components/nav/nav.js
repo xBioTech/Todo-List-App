@@ -59,6 +59,7 @@ function createNav() {
 
   const plusSvg = new Image();
   plusSvg.src = plusIcon;
+  plusSvg.classList.add("project-plus-icon")
   projectContainer.appendChild(plusSvg);
   navDivBottom.appendChild(projectContainer);
 

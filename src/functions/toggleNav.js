@@ -1,6 +1,7 @@
 import { removeNavOnMobile } from "./clearContent";
 import createNav from "../components/nav/nav";
 import switchTabs from "./switchTabs";
+import { attachEventListenersForAddProjectForm } from "./eventHandler";
 
 function toggleNav(){
     let isNavOpen = true;
@@ -18,6 +19,7 @@ function toggleNav(){
             const header = document.querySelector(".header"); 
             header.insertAdjacentElement("afterend", nav);  
             switchTabs();
+            attachEventListenersForAddProjectForm();
         }
     })
 }

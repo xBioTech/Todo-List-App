@@ -52,6 +52,7 @@ form {
     outline: none;
     border: 1px solid $text-color;
     transition: all 0.2s ease-in-out;
+    text-align: center;
     &:focus {
       outline: none;
       border: 1px solid $header-color;
