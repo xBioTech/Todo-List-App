@@ -14,6 +14,7 @@ function createNav() {
 
   const unorderedListTop = document.createElement("ul");
   const unorderedListBottom = document.createElement("ul");
+  unorderedListBottom.classList.add("projects-ul")
 
   const home = document.createElement("li");
   home.classList.add("home-li");

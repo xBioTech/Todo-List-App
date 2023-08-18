@@ -3,7 +3,8 @@ import { removeAddTaskFormContent, removeAddProjectForm } from "./clearContent";
 import { addTaskToTodoListArray, todoList } from "./addTask";
 import { sortTasks } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
-
+import { addProjectsToArray , projects } from "./addProject";
+import addProjectToUl from "./addProjectToUl";
 
 let isFormOpen = false;
 
@@ -50,6 +51,13 @@ function attachEventListenersForAddProjectForm(){
       removeAddProjectForm();
       isFormOpen = false;
     });
+
+    const projectFormBtn = document.querySelector(".project-form-btn");
+
+    projectFormBtn.addEventListener("click", (e)=>{
+      e.preventDefault();
+      addProjectsToArray();
+    })
   });
 }
 
