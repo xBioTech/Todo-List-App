@@ -1,10 +1,10 @@
 import createAddTaskForm from "../components/addTaskForm/addTaskForm";
 import { removeAddTaskFormContent, removeAddProjectForm } from "./clearContent";
-import { addTaskToTodoListArray, todoList } from "./addTask";
+import { addTaskToTodoListArray } from "./addTask";
 import { sortTasks } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
-import { addProjectsToArray , projects } from "./addProject";
-import addProjectToUl from "./addProjectToUl";
+import { addProjectsToArray  } from "./addProject";
+
 
 let isFormOpen = false;
 

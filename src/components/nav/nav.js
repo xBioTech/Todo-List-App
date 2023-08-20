@@ -64,10 +64,6 @@ function createNav() {
   projectContainer.appendChild(plusSvg);
   navDivBottom.appendChild(projectContainer);
 
-  const fixedListElement3 = document.createElement("li");
-  fixedListElement3.classList.add("new-project-li");
-  fixedListElement3.textContent = "New Project";
-  unorderedListBottom.appendChild(fixedListElement3);
 
   navDivBottom.appendChild(unorderedListBottom);
   navDiv.appendChild(navDivTop);
