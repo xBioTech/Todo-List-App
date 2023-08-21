@@ -4,8 +4,7 @@ import createWeek from "../components/weekSection/thisWeek";
 import { clearMainContent } from "./clearContent";
 import { attachEventListenersForAddTaskForm } from "./eventHandler";
 import addTaskToUl from "./addTaskToUl";
-import { todayTasks , weekTasks } from "./sortTasksByDueDate";
-
+import { todayTasks, weekTasks } from "./sortTasksByDueDate";
 
 function switchTabs() {
   const homeLi = document.querySelector(".home-li");
@@ -21,17 +20,17 @@ function switchTabs() {
   todayLi.addEventListener("click", () => {
     clearMainContent();
     createToday();
-   todayTasks.forEach((task)=>{
-    addTaskToUl(task)
-   })
+    todayTasks.forEach((task) => {
+      addTaskToUl(task);
+    });
   });
 
   weekLi.addEventListener("click", () => {
     clearMainContent();
     createWeek();
-    weekTasks.forEach((task)=>{
-      addTaskToUl(task)
-    })
+    weekTasks.forEach((task) => {
+      addTaskToUl(task);
+    });
   });
 }
 

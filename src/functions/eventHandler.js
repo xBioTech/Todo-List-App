@@ -3,8 +3,8 @@ import { removeAddTaskFormContent, removeAddProjectForm } from "./clearContent";
 import { addTaskToTodoListArray } from "./addTask";
 import { sortTasks } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
-import { addProjectsToArray  } from "./addProject";
-
+import { addProjectsToArray, projects } from "./addProject";
+import createCustomProject from "../components/customProjectsSection/createCustomProject";
 
 let isFormOpen = false;
 
@@ -34,11 +34,11 @@ function attachEventListenersForAddTaskForm() {
   });
 }
 
-function attachEventListenersForAddProjectForm(){
+function attachEventListenersForAddProjectForm() {
   const projectPlusIcon = document.querySelector(".project-plus-icon");
 
-  projectPlusIcon.addEventListener("click", ()=>{
-    if(isFormOpen){
+  projectPlusIcon.addEventListener("click", () => {
+    if (isFormOpen) {
       return;
     }
 
@@ -47,18 +47,33 @@ function attachEventListenersForAddProjectForm(){
 
     const projectFormExitIcon = document.querySelector(".project-form-img");
 
-    projectFormExitIcon.addEventListener("click", ()=>{
+    projectFormExitIcon.addEventListener("click", () => {
       removeAddProjectForm();
       isFormOpen = false;
     });
 
     const projectFormBtn = document.querySelector(".project-form-btn");
 
-    projectFormBtn.addEventListener("click", (e)=>{
+    projectFormBtn.addEventListener("click", (e) => {
       e.preventDefault();
       addProjectsToArray();
-    })
+    });
   });
 }
 
-export {attachEventListenersForAddTaskForm, attachEventListenersForAddProjectForm};
+function handleProjectNameClick(project) {
+  createCustomProject(project);
+}
+
+function attachProjectNameEventListeners() {
+  projects.forEach((project) => {
+    const projectLink = document.querySelector(`.${project.name}`);
+    projectLink.addEventListener("click", handleProjectNameClick(project));
+  });
+}
+
+export {
+  attachEventListenersForAddTaskForm,
+  attachEventListenersForAddProjectForm,
+  attachProjectNameEventListeners,
+};
