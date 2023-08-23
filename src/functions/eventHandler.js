@@ -1,5 +1,9 @@
 import createAddTaskForm from "../components/addTaskForm/addTaskForm";
-import { removeAddTaskFormContent, removeAddProjectForm } from "./clearContent";
+import {
+  removeAddTaskFormContent,
+  removeAddProjectForm,
+  clearMainContent,
+} from "./clearContent";
 import { addTaskToTodoListArray } from "./addTask";
 import { sortTasks } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
@@ -61,14 +65,21 @@ function attachEventListenersForAddProjectForm() {
   });
 }
 
-function handleProjectNameClick(project) {
-  createCustomProject(project);
+function handleProjectNameClick(projectName) {
+  const project = projects.find((project) => project.name === projectName);
+  if (project) {
+    createCustomProject(project);
+  }
 }
 
 function attachProjectNameEventListeners() {
-  projects.forEach((project) => {
-    const projectLink = document.querySelector(`.${project.name}`);
-    projectLink.addEventListener("click", handleProjectNameClick(project));
+  const projectLink = document.querySelectorAll(".custom-project");
+  projectLink.forEach((projectLink) => {
+    const projectName = projectLink.textContent;
+    projectLink.addEventListener("click", () => {
+      clearMainContent();
+      handleProjectNameClick(projectName);
+    });
   });
 }
 
