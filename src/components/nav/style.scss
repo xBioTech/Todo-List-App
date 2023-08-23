@@ -57,6 +57,16 @@ $hover-state: #3498db;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+
+    .all-li {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .today-li {
+      display: flex;
+      justify-content: space-between;
+    }
     li {
       display: flex;
       flex-direction: row-reverse;

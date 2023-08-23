@@ -5,16 +5,23 @@ import { clearMainContent } from "./clearContent";
 import { attachEventListenersForAddTaskForm } from "./eventHandler";
 import addTaskToUl from "./addTaskToUl";
 import { todayTasks, weekTasks } from "./sortTasksByDueDate";
+import createAllSection from "../components/allSection/all";
 
 function switchTabs() {
   const homeLi = document.querySelector(".home-li");
   const todayLi = document.querySelector(".today-li");
   const weekLi = document.querySelector(".week-li");
+  const allLi = document.querySelector(".all-li");
 
   homeLi.addEventListener("click", () => {
     clearMainContent();
     createHome();
     attachEventListenersForAddTaskForm();
+  });
+
+  allLi.addEventListener("click", () => {
+    clearMainContent();
+    createAllSection();
   });
 
   todayLi.addEventListener("click", () => {

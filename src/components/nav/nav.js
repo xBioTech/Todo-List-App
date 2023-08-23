@@ -2,6 +2,7 @@ import homeIcon from "../../assets/home-plus.svg";
 import todayIcon from "../../assets/calendar-today.svg";
 import weekIcon from "../../assets/calendar-week.svg";
 import plusIcon from "../../assets/plus-circle.svg";
+import allIcon from "../../assets/calendar-all.svg";
 
 function createNav() {
   const contentDiv = document.getElementById("content");
@@ -14,7 +15,7 @@ function createNav() {
 
   const unorderedListTop = document.createElement("ul");
   const unorderedListBottom = document.createElement("ul");
-  unorderedListBottom.classList.add("projects-ul")
+  unorderedListBottom.classList.add("projects-ul");
 
   const home = document.createElement("li");
   home.classList.add("home-li");
@@ -27,6 +28,16 @@ function createNav() {
   homeSvg.src = homeIcon;
   homeSvg.classList.add("home-icon");
   home.appendChild(homeSvg);
+
+  const allTab = document.createElement("li");
+  allTab.classList.add("all-li");
+  allTab.textContent = "All tasks";
+  unorderedListTop.appendChild(allTab);
+
+  const allSvg = new Image();
+  allSvg.src = allIcon;
+  allSvg.classList.add("calendar-icon", "all");
+  allTab.appendChild(allSvg);
 
   const fixedListElement1 = document.createElement("li");
   fixedListElement1.classList.add("today-li");
@@ -60,10 +71,9 @@ function createNav() {
 
   const plusSvg = new Image();
   plusSvg.src = plusIcon;
-  plusSvg.classList.add("project-plus-icon")
+  plusSvg.classList.add("project-plus-icon");
   projectContainer.appendChild(plusSvg);
   navDivBottom.appendChild(projectContainer);
-
 
   navDivBottom.appendChild(unorderedListBottom);
   navDiv.appendChild(navDivTop);
