@@ -3,6 +3,7 @@ import { todoList } from "./addTask";
 
 let todayTasks = [];
 let weekTasks = [];
+let formattedTodoList = [];
 
 function sortTasks() {
   todoList.sort((a, b) => a.dueDate - b.dueDate);
@@ -11,6 +12,10 @@ function sortTasks() {
       task.dueDate = parseISO(task.dueDate);
     }
   });
+  formattedTodoList = todoList.map((task) => ({
+    ...task,
+    dueDate: format(task.dueDate, "dd/MM/yyyy"),
+  }));
 
   const currentDate = new Date();
 
@@ -34,4 +39,4 @@ function sortTasks() {
   console.log("Week's Tasks:", weekTasks);
 }
 
-export { sortTasks, todayTasks, weekTasks };
+export { sortTasks, todayTasks, weekTasks, formattedTodoList };
