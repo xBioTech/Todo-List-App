@@ -16,10 +16,24 @@ body {
   background-color: $bg-color;
 }
 
-.task-ul{
+.task-ul {
+  .task-li {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 2rem;
+    p:first-child {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      max-width: 70px;
+    }
 
-  .task-li{
-    display: flex;
-    gap: 3rem;
+    p {
+      display: flex;
+      align-items: center;
+    }
+
+    button {
+    }
   }
 }
