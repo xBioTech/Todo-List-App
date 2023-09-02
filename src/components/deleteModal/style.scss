@@ -1,0 +1,58 @@
+$header-color: #3498db;
+$text-color: #757575;
+$bg-color: #ffffff;
+
+#content {
+  position: relative;
+}
+
+.delete-modal {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-size: 1rem;
+  background-color: $bg-color;
+  .delete-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2em 0 2em;
+    background-color: $header-color;
+    font-size: 0.8rem;
+    color: white;
+    .alert-icon {
+      max-width: 15%;
+    }
+  }
+
+  .delete-modal-warning {
+    color: $text-color;
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  .delete-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2em 0 0;
+    gap: 0.3rem;
+    .cancel-btn {
+      padding: 0.4em 0;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      color: $text-color;
+    }
+    .modal-delete-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.4em 2em;
+      cursor: pointer;
+    }
+  }
+}

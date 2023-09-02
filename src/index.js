@@ -9,10 +9,13 @@ import "./components/addTaskForm/style.scss";
 import "./components/addProjectForm/style.scss";
 import "./components/customProjectsSection/style.scss";
 import "./components/allSection/style.scss";
+import "./components/deleteModal/style.scss";
 import firstPageLoad from "./functions/firstPageLoad";
 import switchTabs from "./functions/switchTabs";
 import toggleNav from "./functions/toggleNav";
+import deleteModal from "./components/deleteModal/deleteModal";
 
 firstPageLoad();
 switchTabs();
 toggleNav();
+deleteModal();
