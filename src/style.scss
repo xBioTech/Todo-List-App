@@ -33,7 +33,14 @@ body {
       align-items: center;
     }
 
-    button {
+    .icons-div {
+      display: flex;
+      align-items: center;
+      .show-more,
+      .delete-btn {
+        max-width: 40%;
+        cursor: pointer;
+      }
     }
   }
 }
