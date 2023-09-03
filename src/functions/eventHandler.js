@@ -9,6 +9,7 @@ import { sortTasks } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
 import { addProjectsToArray, projects } from "./addProject";
 import createCustomProject from "../components/customProjectsSection/createCustomProject";
+import deleteModal from "../components/deleteModal/deleteModal";
 
 let isFormOpen = false;
 
@@ -83,8 +84,19 @@ function attachProjectNameEventListeners() {
   });
 }
 
+function renderDeleteModal() {
+  const mainContent = document.querySelector(".main-content");
+
+  mainContent.addEventListener("click", (event) => {
+    if (event.target.classList.contains("delete-btn")) {
+      deleteModal();
+    }
+  });
+}
+
 export {
   attachEventListenersForAddTaskForm,
   attachEventListenersForAddProjectForm,
   attachProjectNameEventListeners,
+  renderDeleteModal,
 };

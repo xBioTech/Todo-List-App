@@ -2,7 +2,10 @@ import createHome from "../components/homeSection/home";
 import createToday from "../components/todaySection/today";
 import createWeek from "../components/weekSection/thisWeek";
 import { clearMainContent } from "./clearContent";
-import { attachEventListenersForAddTaskForm } from "./eventHandler";
+import {
+  attachEventListenersForAddTaskForm,
+  renderDeleteModal,
+} from "./eventHandler";
 import addTaskToUl from "./addTaskToUl";
 import {
   sortTasks,
@@ -27,6 +30,7 @@ function switchTabs() {
   allLi.addEventListener("click", () => {
     clearMainContent();
     createAllSection();
+    renderDeleteModal();
     sortTasks();
     formattedTodoList.forEach((task) => {
       addTaskToUl(task);
@@ -36,6 +40,7 @@ function switchTabs() {
   todayLi.addEventListener("click", () => {
     clearMainContent();
     createToday();
+    renderDeleteModal();
     sortTasks();
     todayTasks.forEach((task) => {
       addTaskToUl(task);
@@ -45,6 +50,7 @@ function switchTabs() {
   weekLi.addEventListener("click", () => {
     clearMainContent();
     createWeek();
+    renderDeleteModal();
     sortTasks();
     weekTasks.forEach((task) => {
       addTaskToUl(task);
