@@ -32,8 +32,8 @@ function switchTabs() {
     createAllSection();
     renderDeleteModal();
     sortTasks();
-    formattedTodoList.forEach((task) => {
-      addTaskToUl(task);
+    formattedTodoList.forEach((task, index) => {
+      addTaskToUl(task, index);
     });
   });
 
@@ -42,8 +42,8 @@ function switchTabs() {
     createToday();
     renderDeleteModal();
     sortTasks();
-    todayTasks.forEach((task) => {
-      addTaskToUl(task);
+    todayTasks.forEach((task, index) => {
+      addTaskToUl(task, index);
     });
   });
 
@@ -52,8 +52,8 @@ function switchTabs() {
     createWeek();
     renderDeleteModal();
     sortTasks();
-    weekTasks.forEach((task) => {
-      addTaskToUl(task);
+    weekTasks.forEach((task, index) => {
+      addTaskToUl(task, index);
     });
   });
 }
