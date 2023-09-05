@@ -91,6 +91,15 @@ function renderDeleteModal() {
     if (event.target.classList.contains("delete-btn")) {
       deleteModal();
     }
+
+    const cancelBtn = document.querySelector(".cancel-btn");
+    const deleteModalDiv = document.querySelector(".delete-modal");
+    cancelBtn.addEventListener("click", () => {
+      deleteModalDiv.remove();
+    });
+
+    const deleteTaskBtn = document.querySelector(".modal-delete-btn");
+    deleteTaskBtn.addEventListener("click", () => {});
   });
 }
 
