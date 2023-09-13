@@ -6,7 +6,7 @@ import {
   attachEventListenersForAddTaskForm,
   renderDeleteModal,
 } from "./eventHandler";
-import addTaskToUl from "./addTaskToUl";
+import { addTaskToUl } from "./addTaskToUl";
 import {
   sortTasks,
   todayTasks,

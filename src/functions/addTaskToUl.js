@@ -1,10 +1,12 @@
 import viewMoreIcon from "../assets/dots-vertical.svg";
 import deleteIcon from "../assets/minus-circle.svg";
 
+let taskLi;
+
 function addTaskToUl(task, index) {
   const taskUl = document.querySelector(".task-ul");
 
-  const taskLi = document.createElement("li");
+  taskLi = document.createElement("li");
   taskLi.setAttribute("data-index", index);
   taskLi.classList.add("task-li");
 
@@ -34,4 +36,4 @@ function addTaskToUl(task, index) {
   taskUl.appendChild(taskLi);
 }
 
-export default addTaskToUl;
+export { addTaskToUl, taskLi };

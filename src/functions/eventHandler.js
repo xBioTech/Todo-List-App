@@ -10,6 +10,8 @@ import addProjectForm from "../components/addProjectForm/addProjectForm";
 import { addProjectsToArray, projects } from "./addProject";
 import createCustomProject from "../components/customProjectsSection/createCustomProject";
 import deleteModal from "../components/deleteModal/deleteModal";
+import { deleteTask, taskElement } from "./deleteTask";
+import { taskLi } from "./addTaskToUl";
 
 let isFormOpen = false;
 
@@ -99,7 +101,9 @@ function renderDeleteModal() {
 
     const deleteTaskBtn = document.querySelector(".modal-delete-btn");
     deleteTaskBtn.addEventListener("click", () => {
-      console.log("test");
+      const dataIndex = event.target.closest("li").getAttribute("data-index");
+      deleteTask(dataIndex);
+      deleteModalDiv.remove();
     });
   });
 }
