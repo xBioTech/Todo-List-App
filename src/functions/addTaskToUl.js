@@ -1,5 +1,6 @@
-import viewMoreIcon from "../assets/dots-vertical.svg";
+import infoIcon from "../assets/information-variant-circle-outline.svg";
 import deleteIcon from "../assets/minus-circle.svg";
+import fileEditIcon from "../assets/file-edit.svg";
 
 let taskLi;
 
@@ -21,10 +22,15 @@ function addTaskToUl(task, index) {
   const iconsDiv = document.createElement("div");
   iconsDiv.classList.add("icons-div");
 
-  const viewMoreSvg = new Image();
-  viewMoreSvg.src = viewMoreIcon;
-  viewMoreSvg.classList.add("show-more");
-  iconsDiv.appendChild(viewMoreSvg);
+  const infoSvg = new Image();
+  infoSvg.src = infoIcon;
+  infoSvg.classList.add("info-btn");
+  iconsDiv.appendChild(infoSvg);
+
+  const fileEditSvg = new Image();
+  fileEditSvg.src = fileEditIcon;
+  fileEditSvg.classList.add("edit-btn");
+  iconsDiv.appendChild(fileEditSvg);
 
   const deleteSvg = new Image();
   deleteSvg.src = deleteIcon;
