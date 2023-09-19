@@ -1,16 +1,16 @@
 import formImg from "../../assets/exit-to-app.svg";
 
-function createAddTaskForm() {
+function createInfoForm(task) {
   const contentDiv = document.getElementById("content");
   const form = document.createElement("form");
   form.setAttribute("action", "get");
-  form.classList.add("add-task-form");
+  form.classList.add("info-form");
 
   const formHeaderContainer = document.createElement("div");
   formHeaderContainer.classList.add("form-header-container");
 
   const headerContainerH1 = document.createElement("h1");
-  headerContainerH1.textContent = "Add a Task";
+  headerContainerH1.textContent = "Info";
   formHeaderContainer.appendChild(headerContainerH1);
 
   const formSvg = new Image();
@@ -36,6 +36,8 @@ function createAddTaskForm() {
   inputTitle.setAttribute("name", "title");
   inputTitle.setAttribute("id", "title");
   inputTitle.required = true;
+  inputTitle.readOnly = true;
+  inputTitle.value = task.title;
   flexContainer.appendChild(inputTitle);
 
   const labelDescription = document.createElement("label");
@@ -50,6 +52,8 @@ function createAddTaskForm() {
   textareaDescription.setAttribute("id", "description");
   textareaDescription.setAttribute("cols", "30");
   textareaDescription.setAttribute("rows", "4");
+  textareaDescription.readOnly = true;
+  textareaDescription.value = task.description;
   flexContainer.appendChild(textareaDescription);
 
   const labelDueDate = document.createElement("label");
@@ -60,10 +64,12 @@ function createAddTaskForm() {
   flexContainer.appendChild(brElement);
 
   const inputDueDate = document.createElement("input");
-  inputDueDate.setAttribute("type", "date");
+  inputDueDate.setAttribute("type", "text");
   inputDueDate.setAttribute("name", "duedate");
   inputDueDate.setAttribute("id", "duedate");
   inputDueDate.required = true;
+  inputDueDate.readOnly = true;
+  inputDueDate.value = task.dueDate;
   flexContainer.appendChild(inputDueDate);
 
   const labelPriority = document.createElement("label");
@@ -73,35 +79,18 @@ function createAddTaskForm() {
 
   flexContainer.appendChild(brElement);
 
-  const selectPriority = document.createElement("select");
+  const selectPriority = document.createElement("input");
+  selectPriority.setAttribute("type", "text");
   selectPriority.setAttribute("name", "priority");
   selectPriority.setAttribute("id", "priority");
-  const optionPlaceholder = document.createElement("option");
-  optionPlaceholder.setAttribute("value", "");
-  optionPlaceholder.textContent = "--Please choose an option--";
-  selectPriority.appendChild(optionPlaceholder);
-  const optionHighPriority = document.createElement("option");
-  optionHighPriority.setAttribute("value", "🔥 Urgent AF");
-  optionHighPriority.textContent = "🔥 Urgent AF";
-  selectPriority.appendChild(optionHighPriority);
-  const optionMediumPriority = document.createElement("option");
-  optionMediumPriority.setAttribute("value", "🌟 Shiny but Not Urgent");
-  optionMediumPriority.textContent = "🌟 Shiny but Not Urgent";
-  selectPriority.appendChild(optionMediumPriority);
-  const optionLowPriority = document.createElement("option");
-  optionLowPriority.setAttribute("value", "🐌 Snail's Pace");
-  optionLowPriority.textContent = "🐌 Snail's Pace";
-  selectPriority.appendChild(optionLowPriority);
-  flexContainer.appendChild(selectPriority);
+  selectPriority.readOnly = true;
+  selectPriority.value = task.priority;
 
-  const formBtn = document.createElement("button");
-  formBtn.classList.add("form-btn");
-  formBtn.textContent = "Add Task";
-  flexContainer.appendChild(formBtn);
+  flexContainer.appendChild(selectPriority);
 
   form.appendChild(flexContainer);
 
   contentDiv.appendChild(form);
 }
 
-export default createAddTaskForm;
+export default createInfoForm;

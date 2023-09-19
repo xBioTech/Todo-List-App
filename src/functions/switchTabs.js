@@ -4,6 +4,8 @@ import createWeek from "../components/weekSection/thisWeek";
 import { clearMainContent } from "./clearContent";
 import {
   attachEventListenersForAddTaskForm,
+  attachEventListenersForEditButton,
+  attachEventListenersForInfoButton,
   renderDeleteModal,
 } from "./eventHandler";
 import { addTaskToUl } from "./addTaskToUl";
@@ -41,6 +43,7 @@ function switchTabs() {
     clearMainContent();
     createToday();
     renderDeleteModal();
+    attachEventListenersForInfoButton();
     sortTasks();
     todayTasks.forEach((task, index) => {
       addTaskToUl(task, index);

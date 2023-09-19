@@ -5,13 +5,14 @@ import {
   clearMainContent,
 } from "./clearContent";
 import { addTaskToTodoListArray } from "./addTask";
-import { sortTasks } from "./sortTasksByDueDate";
+import { sortTasks, todayTasks } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
 import { addProjectsToArray, projects } from "./addProject";
 import createCustomProject from "../components/customProjectsSection/createCustomProject";
 import deleteModal from "../components/deleteModal/deleteModal";
 import { deleteTask, taskElement } from "./deleteTask";
 import { taskLi } from "./addTaskToUl";
+import createInfoForm from "../components/infoForm/infoForm";
 
 let isFormOpen = false;
 
@@ -108,9 +109,40 @@ function renderDeleteModal() {
   });
 }
 
+function attachEventListenersForInfoButton() {
+  const mainContent = document.querySelector(".main-content");
+
+  mainContent.addEventListener("click", (event) => {
+    if (event.target.classList.contains("info-btn")) {
+      const dataIndex = event.target.closest("li").getAttribute("data-index");
+      const clickedTask = todayTasks[dataIndex];
+      console.log(clickedTask);
+      createInfoForm(clickedTask);
+
+      const exitIcon = document.querySelector(".form-img");
+      const infoForm = document.querySelector(".info-form");
+      exitIcon.addEventListener("click", () => {
+        infoForm.remove();
+      });
+    }
+  });
+}
+
+function attachEventListenersForEditButton() {
+  const mainContent = document.querySelector(".main-content");
+
+  mainContent.addEventListener("click", (event) => {
+    if (event.target.classList.contains("edit-btn")) {
+      console.log("test");
+    }
+  });
+}
+
 export {
   attachEventListenersForAddTaskForm,
   attachEventListenersForAddProjectForm,
   attachProjectNameEventListeners,
   renderDeleteModal,
+  attachEventListenersForInfoButton,
+  attachEventListenersForEditButton,
 };
