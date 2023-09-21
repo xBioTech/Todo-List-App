@@ -109,13 +109,13 @@ function renderDeleteModal() {
   });
 }
 
-function attachEventListenersForInfoButton() {
+function attachEventListenersForInfoButton(taskArray) {
   const mainContent = document.querySelector(".main-content");
 
   mainContent.addEventListener("click", (event) => {
     if (event.target.classList.contains("info-btn")) {
       const dataIndex = event.target.closest("li").getAttribute("data-index");
-      const clickedTask = todayTasks[dataIndex];
+      const clickedTask = taskArray[dataIndex];
       console.log(clickedTask);
       createInfoForm(clickedTask);
 
