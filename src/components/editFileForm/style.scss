@@ -15,7 +15,7 @@ $bg-color: #ffffff;
       &:hover{
         background-color: red;
         color: white;
-        border: none;
+        border: 1px solid red;
       }
     }
 
@@ -29,7 +29,7 @@ $bg-color: #ffffff;
       &:hover{
         background-color: $header-color;
         color: white;
-        border: none;
+        border: 1px solid $header-color;
       }
     }
 }

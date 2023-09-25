@@ -23,13 +23,19 @@ form {
 
     .form-btn {
       color: white;
-      background-color: $header-color;
+      color: $text-color;
       border-radius: 5px;
-      border: none;
+      border: 1px solid $text-color;
       margin-top: 2rem;
       padding: 0.5rem 0;
       font-weight: 700;
       cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover{
+        border: 1px solid $header-color;
+        background-color: $header-color;
+        color: white;
+      }
     }
   }
   .form-header-container {
