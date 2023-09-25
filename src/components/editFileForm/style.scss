@@ -1,0 +1,35 @@
+$header-color: #3498db;
+$text-color: #757575;
+$bg-color: #ffffff;
+
+.form-footer-div{
+    display: flex;
+    justify-content: flex-end;
+    .cancel-changes-btn{
+      transition: all 0.2s ease-in-out;
+      padding: 0.4em 0.4em;
+      border-radius: 5px;
+      border: 1px solid $text-color;
+      cursor: pointer;
+      color: $text-color;
+      &:hover{
+        background-color: red;
+        color: white;
+        border: none;
+      }
+    }
+
+    .submit-changes-btn{
+      border: 1px solid $text-color;
+      color: $text-color;
+      border-radius: 5px;
+      padding: 0.4em 2em;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover{
+        background-color: $header-color;
+        color: white;
+        border: none;
+      }
+    }
+}
