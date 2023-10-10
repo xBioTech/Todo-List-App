@@ -68,10 +68,7 @@ function createEditFileForm() {
   inputDueDate.addEventListener("mouseenter", function() {
     this.setAttribute("type", "date");
   });
-  inputDueDate.addEventListener("mouseleave", function() {
-    this.setAttribute("type", "text");
-    inputDueDate.value = "testdate"
-  });
+  
   flexContainer.appendChild(inputDueDate);
 
   const labelPriority = document.createElement("label");

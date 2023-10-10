@@ -4,15 +4,17 @@ import {
   removeAddProjectForm,
   clearMainContent,
 } from "./clearContent";
-import { addTaskToTodoListArray } from "./addTask";
+import { addTaskToTodoListArray, todoList } from "./addTask";
 import { sortTasks, todayTasks } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
 import { addProjectsToArray, projects } from "./addProject";
 import createCustomProject from "../components/customProjectsSection/createCustomProject";
 import deleteModal from "../components/deleteModal/deleteModal";
 import { deleteTask, taskElement } from "./deleteTask";
-import { taskLi } from "./addTaskToUl";
+import { taskLi  } from "./addTaskToUl";
 import createInfoForm from "../components/infoForm/infoForm";
+import createEditFileForm from "../components/editFileForm/editFileForm";
+import editFile from "./editFile";
 
 let isFormOpen = false;
 
@@ -133,7 +135,29 @@ function attachEventListenersForEditButton() {
 
   mainContent.addEventListener("click", (event) => {
     if (event.target.classList.contains("edit-btn")) {
-      console.log("test");
+      const dataIndex = event.target.closest("li").getAttribute("data-index");
+     // const clickedTask = taskArray[dataIndex];
+      createEditFileForm();
+
+      const exitIcon = document.querySelector(".form-img");
+      const editForm = document.querySelector(".edit-form");
+      exitIcon.addEventListener("click", ()=>{
+        editForm.remove();
+      })
+
+      const cancelBtn = document.querySelector(".cancel-changes-btn");
+      cancelBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        editForm.remove();
+      })
+
+      const submitBtn = document.querySelector(".submit-changes-btn");
+      submitBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        editFile(dataIndex);
+        console.log(todoList)
+        console.log(todayTasks)
+      })
     }
   });
 }

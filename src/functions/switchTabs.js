@@ -34,6 +34,7 @@ function switchTabs() {
     createAllSection();
     renderDeleteModal();
     attachEventListenersForInfoButton(formattedTodoList);
+    attachEventListenersForEditButton();
     sortTasks();
     formattedTodoList.forEach((task, index) => {
       addTaskToUl(task, index);
@@ -45,6 +46,7 @@ function switchTabs() {
     createToday();
     renderDeleteModal();
     attachEventListenersForInfoButton(todayTasks);
+    attachEventListenersForEditButton();
     sortTasks();
     todayTasks.forEach((task, index) => {
       addTaskToUl(task, index);
@@ -56,6 +58,7 @@ function switchTabs() {
     createWeek();
     renderDeleteModal();
     attachEventListenersForInfoButton(weekTasks);
+    attachEventListenersForEditButton();
     sortTasks();
     weekTasks.forEach((task, index) => {
       addTaskToUl(task, index);

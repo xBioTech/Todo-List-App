@@ -43,4 +43,4 @@ function addTaskToTodoListArray() {
   formPriorityInput.value = "";
 }
 
-export { todoList, addTaskToTodoListArray };
+export { todoList, addTaskToTodoListArray, Task };
