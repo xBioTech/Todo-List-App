@@ -35,7 +35,7 @@ function createEditFileForm() {
   inputTitle.setAttribute("type", "text");
   inputTitle.setAttribute("name", "title");
   inputTitle.setAttribute("id", "title");
-  inputTitle.value = "test";
+  inputTitle.value = "";
   flexContainer.appendChild(inputTitle);
 
   const labelDescription = document.createElement("label");
@@ -50,7 +50,7 @@ function createEditFileForm() {
   textareaDescription.setAttribute("id", "description");
   textareaDescription.setAttribute("cols", "30");
   textareaDescription.setAttribute("rows", "4");
-  textareaDescription.value = "test";
+  textareaDescription.value = "";
   flexContainer.appendChild(textareaDescription);
 
   const labelDueDate = document.createElement("label");
@@ -64,7 +64,7 @@ function createEditFileForm() {
   inputDueDate.setAttribute("type", "text");
   inputDueDate.setAttribute("name", "duedate");
   inputDueDate.setAttribute("id", "duedate");
-  inputDueDate.value = "testdate"
+  inputDueDate.value = ""
   inputDueDate.addEventListener("mouseenter", function() {
     this.setAttribute("type", "date");
   });

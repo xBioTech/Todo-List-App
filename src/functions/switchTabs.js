@@ -17,6 +17,8 @@ import {
 } from "./sortTasksByDueDate";
 import createAllSection from "../components/allSection/all";
 
+let currentTab = "";
+
 function switchTabs() {
   const homeLi = document.querySelector(".home-li");
   const todayLi = document.querySelector(".today-li");
@@ -32,6 +34,7 @@ function switchTabs() {
   allLi.addEventListener("click", () => {
     clearMainContent();
     createAllSection();
+    currentTab = "all";
     renderDeleteModal();
     attachEventListenersForInfoButton(formattedTodoList);
     attachEventListenersForEditButton();
@@ -44,6 +47,7 @@ function switchTabs() {
   todayLi.addEventListener("click", () => {
     clearMainContent();
     createToday();
+    currentTab = "today";
     renderDeleteModal();
     attachEventListenersForInfoButton(todayTasks);
     attachEventListenersForEditButton();
@@ -56,6 +60,7 @@ function switchTabs() {
   weekLi.addEventListener("click", () => {
     clearMainContent();
     createWeek();
+    currentTab = "week";
     renderDeleteModal();
     attachEventListenersForInfoButton(weekTasks);
     attachEventListenersForEditButton();
@@ -66,4 +71,5 @@ function switchTabs() {
   });
 }
 
-export default switchTabs;
+export {switchTabs, 
+  currentTab,};

@@ -136,7 +136,6 @@ function attachEventListenersForEditButton() {
   mainContent.addEventListener("click", (event) => {
     if (event.target.classList.contains("edit-btn")) {
       const dataIndex = event.target.closest("li").getAttribute("data-index");
-     // const clickedTask = taskArray[dataIndex];
       createEditFileForm();
 
       const exitIcon = document.querySelector(".form-img");
@@ -155,8 +154,6 @@ function attachEventListenersForEditButton() {
       submitBtn.addEventListener("click", (e)=>{
         e.preventDefault();
         editFile(dataIndex);
-        console.log(todoList)
-        console.log(todayTasks)
       })
     }
   });

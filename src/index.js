@@ -12,7 +12,7 @@ import "./components/allSection/style.scss";
 import "./components/deleteModal/style.scss";
 import "./components/editFileForm/style.scss";
 import firstPageLoad from "./functions/firstPageLoad";
-import switchTabs from "./functions/switchTabs";
+import { switchTabs }from "./functions/switchTabs";
 import toggleNav from "./functions/toggleNav";
 
 firstPageLoad();

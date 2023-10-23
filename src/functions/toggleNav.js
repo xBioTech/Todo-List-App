@@ -1,6 +1,6 @@
 import { removeNavOnMobile } from "./clearContent";
 import createNav from "../components/nav/nav";
-import switchTabs from "./switchTabs";
+import { switchTabs } from "./switchTabs";
 import { attachEventListenersForAddProjectForm } from "./eventHandler";
 
 function toggleNav(){
