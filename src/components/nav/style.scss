@@ -40,7 +40,30 @@ $hover-state: #3498db;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+ .projects-ul{
+
+  .project{
+    display: flex;
+    justify-content: space-between;
   }
+
+  .delete-project-btn{
+    max-width: 8.5%;
+    cursor: pointer;
+    margin-left: .5em;
+  }
+    .custom-project{
+  justify-content: space-between;
+  padding: 5px; 
+  overflow: auto;
+  margin-left: 3em;
+      img{
+        max-width: 15%;
+      }
+    }
+  }
+}
 
   .project-headline {
     border-bottom: solid 3px $text-color;
