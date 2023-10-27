@@ -20,7 +20,19 @@ function addProjectsToArray() {
   } else {
     const newProject = new Project(name);
     projects.push(newProject);
-    addProjectToUl(newProject);
+
+    /*
+    This would have worked as well
+
+    projects.forEach((project, index) => {
+  addProjectToUl(project, index);
+});
+    */
+
+    const index = projects.indexOf(newProject);
+    
+      addProjectToUl(newProject, index);
+   
   }
   console.log(projects);
 

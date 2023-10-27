@@ -159,6 +159,16 @@ function attachEventListenersForEditButton() {
   });
 }
 
+function attachEventListenersForDeleteProjects(){
+  const nav = document.querySelector(".nav");
+
+  nav.addEventListener("click", (event)=>{
+    if(event.target.classList.contains("delete-project-btn")){
+      event.target.closest("div").remove();
+    }
+  })
+}
+
 export {
   attachEventListenersForAddTaskForm,
   attachEventListenersForAddProjectForm,
@@ -166,4 +176,5 @@ export {
   renderDeleteModal,
   attachEventListenersForInfoButton,
   attachEventListenersForEditButton,
+  attachEventListenersForDeleteProjects,
 };

@@ -2,11 +2,12 @@ import { attachProjectNameEventListeners } from "./eventHandler";
 import wrenchSvg from "../assets/wrench-cog-outline.svg";
 import deleteSvg from "../assets/minus-circle.svg"
 
-function addProjectToUl(project) {
+function addProjectToUl(project, index) {
   const projectsUl = document.querySelector(".projects-ul");
 
   const container = document.createElement("div");
   container.classList.add("project");
+  container.setAttribute("data-index", index);
 
   const projectLi = document.createElement("li");
   projectLi.classList.add("custom-project", project.name);
