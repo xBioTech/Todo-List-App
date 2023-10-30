@@ -1,6 +1,6 @@
 import alertIcon from "../../assets/alert-remove.svg";
 
-function deleteModal() {
+function deleteModal(element) {
   const contentDiv = document.getElementById("content");
 
   const deleteModalDiv = document.createElement("div");
@@ -25,7 +25,7 @@ function deleteModal() {
 
   const warningText = document.createElement("p");
   warningText.textContent =
-    "Are you sure you want to delete this Task? Please confirm your choice, or cancel and return to the page.";
+    `Are you sure you want to delete this ${element} Please confirm your choice, or cancel and return to the page.`;
   deleteModalWarning.appendChild(warningText);
 
   deleteModalDiv.appendChild(deleteModalWarning);

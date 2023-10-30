@@ -15,6 +15,7 @@ import { taskLi  } from "./addTaskToUl";
 import createInfoForm from "../components/infoForm/infoForm";
 import createEditFileForm from "../components/editFileForm/editFileForm";
 import editFile from "./editFile";
+import deleteProject from "./deleteProject";
 
 let isFormOpen = false;
 
@@ -94,7 +95,7 @@ function renderDeleteModal() {
 
   mainContent.addEventListener("click", (event) => {
     if (event.target.classList.contains("delete-btn")) {
-      deleteModal();
+      deleteModal("Task?");
     }
     const cancelBtn = document.querySelector(".cancel-btn");
     const deleteModalDiv = document.querySelector(".delete-modal");
@@ -164,9 +165,24 @@ function attachEventListenersForDeleteProjects(){
 
   nav.addEventListener("click", (event)=>{
     if(event.target.classList.contains("delete-project-btn")){
-      event.target.closest("div").remove();
+    const dataIndex = event.target.closest("div").getAttribute("data-index");
+    deleteModal("Project?");
+    const deleteModalDiv = document.querySelector(".delete-modal");
+
+    const cancelBtn = document.querySelector(".cancel-btn");
+    cancelBtn.addEventListener("click", (event)=>{
+      event.preventDefault();
+      deleteModalDiv.remove();
+    });
+
+    const deleteProjectBtn = document.querySelector(".modal-delete-btn");
+    deleteProjectBtn.addEventListener("click", (event)=>{
+      event.preventDefault();
+      deleteProject(deleteModalDiv, dataIndex);
+    })
+    
     }
-  })
+  });
 }
 
 export {
