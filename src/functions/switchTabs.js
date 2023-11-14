@@ -16,6 +16,7 @@ import {
   formattedTodoList,
 } from "./sortTasksByDueDate";
 import createAllSection from "../components/allSection/all";
+import { projects } from "./addProject";
 
 let currentTab = "";
 

@@ -39,7 +39,7 @@ function attachEventListenersForAddTaskForm() {
     const formBtn = document.querySelector(".form-btn");
     formBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      addTaskToTodoListArray();
+      addTaskToTodoListArray(todoList);
       sortTasks();
     });
   });
@@ -72,22 +72,50 @@ function attachEventListenersForAddProjectForm() {
   });
 }
 
-function handleProjectNameClick(projectName) {
-  const project = projects.find((project) => project.name === projectName);
-  if (project) {
-    createCustomProject(project);
-  }
+
+function attachEventListenersForCustomProjectsAddTaskForm(test) {
+  const mainContent = document.querySelector(".main-content")
+
+  mainContent.addEventListener("click", (event)=>{
+    if(event.target.classList.contains("project-add-task-icon")){
+      createAddTaskForm();
+      const addTaskForm = document.querySelector(".add-task-form");
+
+      const cancelBtn = document.querySelector(".form-img");
+      cancelBtn.addEventListener("click", ()=>{
+        addTaskForm.remove();
+      })
+
+      const submitBtn = document.querySelector(".form-btn");
+      submitBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        addTaskToTodoListArray(test);
+      })
+    }
+  })
 }
 
 function attachProjectNameEventListeners() {
-  const projectLink = document.querySelectorAll(".custom-project");
-  projectLink.forEach((projectLink) => {
-    const projectName = projectLink.textContent;
-    projectLink.addEventListener("click", () => {
-      clearMainContent();
-      handleProjectNameClick(projectName);
-    });
+
+  function handleProjectTabClick(index) {
+    clearMainContent();
+    const clickedProject = projects[index];
+    createCustomProject(clickedProject);
+    console.log(clickedProject);
+    const clickedProjectsArray = clickedProject.uniqueArray;
+    attachEventListenersForCustomProjectsAddTaskForm(clickedProjectsArray);
+  }
+
+  const nav = document.querySelector(".nav");
+
+  nav.addEventListener("click", (e) => {
+    if (e.target.classList.contains("custom-project")) {
+      const dataIndex = e.target.closest("div").getAttribute("data-index");
+      handleProjectTabClick(dataIndex);
+    }
   });
+
+
 }
 
 function renderDeleteModal() {
@@ -221,4 +249,5 @@ export {
   attachEventListenersForInfoButton,
   attachEventListenersForEditButton,
   attachEventListenersForDeleteProjects,
+  attachEventListenersForCustomProjectsAddTaskForm, // no need to export
 };

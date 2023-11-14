@@ -31,7 +31,7 @@ function createCustomProject(project) {
 
   const plusSvg = new Image();
   plusSvg.src = plusImg;
-  plusSvg.classList.add("project-plus-icon");
+  plusSvg.classList.add("project-add-task-icon");
   projectBtnDiv.appendChild(plusSvg);
 
   projectDiv.appendChild(projectBtnDiv);

@@ -26,6 +26,7 @@ body {
       grid-column-start: 1;
       grid-column-end: 2;
       max-width: 70px;
+      overflow: scroll;
     }
 
     p {

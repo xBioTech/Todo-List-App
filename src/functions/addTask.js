@@ -9,7 +9,7 @@ class Task {
   }
 }
 
-function addTaskToTodoListArray() {
+function addTaskToTodoListArray(array) {
   const formTitleInput = document.getElementById("title");
   const formDescriptionInput = document.getElementById("description");
   const formDuedateInput = document.getElementById("duedate");
@@ -32,10 +32,10 @@ function addTaskToTodoListArray() {
     formDuedateInput.reportValidity();
   } else if (title !== "" && duedate !== "") {
     const newTask = new Task(title, description, duedate, priority);
-    todoList.push(newTask);
+    array.push(newTask);
   }
 
-  console.log(todoList);
+  console.log(array);
 
   formTitleInput.value = "";
   formDescriptionInput.value = "";

@@ -1,4 +1,3 @@
-import { attachProjectNameEventListeners } from "./eventHandler";
 import wrenchSvg from "../assets/wrench-cog-outline.svg";
 import deleteSvg from "../assets/minus-circle.svg"
 
@@ -30,7 +29,6 @@ function addProjectToUl(project, index) {
 
   projectsUl.appendChild(container);
 
-  attachProjectNameEventListeners();
 }
 
 export default addProjectToUl;
