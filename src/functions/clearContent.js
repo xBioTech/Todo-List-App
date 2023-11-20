@@ -17,4 +17,10 @@ function removeAddProjectForm(){
   const projectForm = document.querySelector(".add-project-form");
   projectForm.remove();
 }
-export { clearMainContent, removeAddTaskFormContent, removeNavOnMobile, removeAddProjectForm };
+
+function clearTaskUlForCustomProjects(){
+  const taskUl = document.querySelector(".task-ul");
+  taskUl.innerHTML = '';
+}
+
+export { clearMainContent, removeAddTaskFormContent, removeNavOnMobile, removeAddProjectForm, clearTaskUlForCustomProjects };

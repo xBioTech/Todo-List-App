@@ -14,9 +14,9 @@ import "./components/editFileForm/style.scss";
 import firstPageLoad from "./functions/firstPageLoad";
 import { switchTabs }from "./functions/switchTabs";
 import toggleNav from "./functions/toggleNav";
-import { attachProjectNameEventListeners } from "./functions/eventHandler";
+import { attachProjectTabEventListeners } from "./functions/eventHandler";
 
 firstPageLoad();
 switchTabs();
-attachProjectNameEventListeners();
+attachProjectTabEventListeners();
 toggleNav();

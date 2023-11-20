@@ -3,7 +3,7 @@ import {
   removeAddTaskFormContent,
   removeAddProjectForm,
   clearMainContent,
-} from "./clearContent";
+ clearTaskUlForCustomProjects } from "./clearContent";
 import { addTaskToTodoListArray, todoList } from "./addTask";
 import { sortTasks, todayTasks } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
@@ -11,7 +11,7 @@ import { addProjectsToArray, projects } from "./addProject";
 import createCustomProject from "../components/customProjectsSection/createCustomProject";
 import deleteModal from "../components/deleteModal/deleteModal";
 import { deleteTask, taskElement } from "./deleteTask";
-import { taskLi  } from "./addTaskToUl";
+import { addTaskToUl, taskLi  } from "./addTaskToUl";
 import createInfoForm from "../components/infoForm/infoForm";
 import createEditFileForm from "../components/editFileForm/editFileForm";
 import editFile from "./editFile";
@@ -73,7 +73,7 @@ function attachEventListenersForAddProjectForm() {
 }
 
 
-function attachEventListenersForCustomProjectsAddTaskForm(test) {
+function attachEventListenersForCustomProjectsAddTaskForm(uniqueArr) {
   const mainContent = document.querySelector(".main-content")
 
   mainContent.addEventListener("click", (event)=>{
@@ -89,20 +89,26 @@ function attachEventListenersForCustomProjectsAddTaskForm(test) {
       const submitBtn = document.querySelector(".form-btn");
       submitBtn.addEventListener("click", (e)=>{
         e.preventDefault();
-        addTaskToTodoListArray(test);
+        addTaskToTodoListArray(uniqueArr);
+        clearTaskUlForCustomProjects();
+        uniqueArr.forEach((task, index) => {
+          addTaskToUl(task, index);
+        });
       })
     }
   })
 }
 
-function attachProjectNameEventListeners() {
+function attachProjectTabEventListeners() {
 
   function handleProjectTabClick(index) {
     clearMainContent();
     const clickedProject = projects[index];
     createCustomProject(clickedProject);
-    console.log(clickedProject);
     const clickedProjectsArray = clickedProject.uniqueArray;
+    clickedProjectsArray.forEach((task, taskIndex)=>{
+      addTaskToUl(task, taskIndex);
+    });
     attachEventListenersForCustomProjectsAddTaskForm(clickedProjectsArray);
   }
 
@@ -244,7 +250,7 @@ function attachEventListenersForDeleteProjects(){
 export {
   attachEventListenersForAddTaskForm,
   attachEventListenersForAddProjectForm,
-  attachProjectNameEventListeners,
+  attachProjectTabEventListeners,
   renderDeleteModal,
   attachEventListenersForInfoButton,
   attachEventListenersForEditButton,
