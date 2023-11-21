@@ -19,6 +19,98 @@ import deleteProject from "./deleteProject";
 
 let isFormOpen = false;
 
+function renderDeleteModal(taskArray) {
+  const mainContent = document.querySelector(".main-content");
+
+  mainContent.addEventListener("click", (event) => {
+    if (event.target.classList.contains("delete-btn")) {
+      if (isFormOpen) {
+        return;
+      }
+
+      deleteModal("Task?");
+      isFormOpen = true;
+    }
+    const cancelBtn = document.querySelector(".cancel-btn");
+    const deleteModalDiv = document.querySelector(".delete-modal");
+    cancelBtn.addEventListener("click", () => {
+      deleteModalDiv.remove();
+      isFormOpen = false;
+    });
+
+    const deleteTaskBtn = document.querySelector(".modal-delete-btn");
+    deleteTaskBtn.addEventListener("click", () => {
+      const dataIndex = event.target.closest("li").getAttribute("data-index");
+      deleteTask(taskArray, dataIndex);
+      deleteModalDiv.remove();
+      isFormOpen = false;
+    });
+  });
+}
+
+
+function attachEventListenersForInfoButton(taskArray) {
+  const mainContent = document.querySelector(".main-content");
+
+  mainContent.addEventListener("click", (event) => {
+    if (event.target.classList.contains("info-btn")) {
+      const dataIndex = event.target.closest("li").getAttribute("data-index");
+      const clickedTask = taskArray[dataIndex];
+      console.log(clickedTask);
+      if (isFormOpen) {
+        return;
+      }
+
+      createInfoForm(clickedTask);
+      isFormOpen = true;
+
+      const exitIcon = document.querySelector(".form-img");
+      const infoForm = document.querySelector(".info-form");
+      exitIcon.addEventListener("click", () => {
+        infoForm.remove();
+        isFormOpen = false;
+      });
+    }
+  });
+}
+
+function attachEventListenersForEditButton(taskArray) {
+  const mainContent = document.querySelector(".main-content");
+
+  mainContent.addEventListener("click", (event) => {
+    if (event.target.classList.contains("edit-btn")) {
+      const dataIndex = event.target.closest("li").getAttribute("data-index");
+      if(isFormOpen){
+        return;
+      }
+
+      createEditFileForm();
+      isFormOpen = true;
+
+      const exitIcon = document.querySelector(".form-img");
+      const editForm = document.querySelector(".edit-form");
+      exitIcon.addEventListener("click", ()=>{
+        editForm.remove();
+        isFormOpen = false;
+      })
+
+      const cancelBtn = document.querySelector(".cancel-changes-btn");
+      cancelBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        editForm.remove();
+        isFormOpen = false;
+      })
+
+      const submitBtn = document.querySelector(".submit-changes-btn");
+      submitBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        editFile(taskArray, dataIndex);
+      })
+    }
+  });
+}
+
+
 function attachEventListenersForAddTaskForm() {
   const plusIcon = document.querySelector(".main-plus-icon");
 
@@ -106,6 +198,9 @@ function attachProjectTabEventListeners() {
     const clickedProject = projects[index];
     createCustomProject(clickedProject);
     const clickedProjectsArray = clickedProject.uniqueArray;
+    renderDeleteModal(clickedProjectsArray);
+    attachEventListenersForInfoButton(clickedProjectsArray);
+    attachEventListenersForEditButton(clickedProjectsArray);
     clickedProjectsArray.forEach((task, taskIndex)=>{
       addTaskToUl(task, taskIndex);
     });
@@ -124,95 +219,8 @@ function attachProjectTabEventListeners() {
 
 }
 
-function renderDeleteModal() {
-  const mainContent = document.querySelector(".main-content");
 
-  mainContent.addEventListener("click", (event) => {
-    if (event.target.classList.contains("delete-btn")) {
-      if (isFormOpen) {
-        return;
-      }
 
-      deleteModal("Task?");
-      isFormOpen = true;
-    }
-    const cancelBtn = document.querySelector(".cancel-btn");
-    const deleteModalDiv = document.querySelector(".delete-modal");
-    cancelBtn.addEventListener("click", () => {
-      deleteModalDiv.remove();
-      isFormOpen = false;
-    });
-
-    const deleteTaskBtn = document.querySelector(".modal-delete-btn");
-    deleteTaskBtn.addEventListener("click", () => {
-      const dataIndex = event.target.closest("li").getAttribute("data-index");
-      deleteTask(dataIndex);
-      deleteModalDiv.remove();
-      isFormOpen = false;
-    });
-  });
-}
-
-function attachEventListenersForInfoButton(taskArray) {
-  const mainContent = document.querySelector(".main-content");
-
-  mainContent.addEventListener("click", (event) => {
-    if (event.target.classList.contains("info-btn")) {
-      const dataIndex = event.target.closest("li").getAttribute("data-index");
-      const clickedTask = taskArray[dataIndex];
-      console.log(clickedTask);
-      if (isFormOpen) {
-        return;
-      }
-
-      createInfoForm(clickedTask);
-      isFormOpen = true;
-
-      const exitIcon = document.querySelector(".form-img");
-      const infoForm = document.querySelector(".info-form");
-      exitIcon.addEventListener("click", () => {
-        infoForm.remove();
-        isFormOpen = false;
-      });
-    }
-  });
-}
-
-function attachEventListenersForEditButton() {
-  const mainContent = document.querySelector(".main-content");
-
-  mainContent.addEventListener("click", (event) => {
-    if (event.target.classList.contains("edit-btn")) {
-      const dataIndex = event.target.closest("li").getAttribute("data-index");
-      if(isFormOpen){
-        return;
-      }
-
-      createEditFileForm();
-      isFormOpen = true;
-
-      const exitIcon = document.querySelector(".form-img");
-      const editForm = document.querySelector(".edit-form");
-      exitIcon.addEventListener("click", ()=>{
-        editForm.remove();
-        isFormOpen = false;
-      })
-
-      const cancelBtn = document.querySelector(".cancel-changes-btn");
-      cancelBtn.addEventListener("click", (e)=>{
-        e.preventDefault();
-        editForm.remove();
-        isFormOpen = false;
-      })
-
-      const submitBtn = document.querySelector(".submit-changes-btn");
-      submitBtn.addEventListener("click", (e)=>{
-        e.preventDefault();
-        editFile(dataIndex);
-      })
-    }
-  });
-}
 
 function attachEventListenersForDeleteProjects(){
   const nav = document.querySelector(".nav");

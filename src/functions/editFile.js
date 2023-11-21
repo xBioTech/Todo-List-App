@@ -11,7 +11,7 @@ import { addTaskToUl } from "./addTaskToUl";
 import { renderDeleteModal , attachEventListenersForInfoButton , attachEventListenersForEditButton } from "./eventHandler";
 
 
-function editFile(index){
+function editFile(taskArray, index){
    const formTitleInput = document.getElementById("title");
    const formDescriptionInput = document.getElementById("description");
    const formDuedateInput = document.getElementById("duedate");
@@ -35,7 +35,7 @@ function editFile(index){
    } else if (formTitleValue !== "" && formDuedateValue !== ""){
       const editedTask = new Task(formTitleValue, formDescriptionValue, formDuedateValue, formPriorityValue);
 
-      todoList.splice(index, 1, editedTask);
+      taskArray.splice(index, 1, editedTask);
 
 
       if(currentTab === "all"){

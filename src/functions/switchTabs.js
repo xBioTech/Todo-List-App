@@ -17,6 +17,7 @@ import {
 } from "./sortTasksByDueDate";
 import createAllSection from "../components/allSection/all";
 import { projects } from "./addProject";
+import { todoList } from "./addTask";
 
 let currentTab = "";
 
@@ -36,9 +37,9 @@ function switchTabs() {
     clearMainContent();
     createAllSection();
     currentTab = "all";
-    renderDeleteModal();
+    renderDeleteModal(todoList);
     attachEventListenersForInfoButton(formattedTodoList);
-    attachEventListenersForEditButton();
+    attachEventListenersForEditButton(todoList);
     sortTasks();
     formattedTodoList.forEach((task, index) => {
       addTaskToUl(task, index);
@@ -49,9 +50,9 @@ function switchTabs() {
     clearMainContent();
     createToday();
     currentTab = "today";
-    renderDeleteModal();
+    renderDeleteModal(todoList);
     attachEventListenersForInfoButton(todayTasks);
-    attachEventListenersForEditButton();
+    attachEventListenersForEditButton(todoList);
     sortTasks();
     todayTasks.forEach((task, index) => {
       addTaskToUl(task, index);
@@ -62,9 +63,9 @@ function switchTabs() {
     clearMainContent();
     createWeek();
     currentTab = "week";
-    renderDeleteModal();
+    renderDeleteModal(todoList);
     attachEventListenersForInfoButton(weekTasks);
-    attachEventListenersForEditButton();
+    attachEventListenersForEditButton(todoList);
     sortTasks();
     weekTasks.forEach((task, index) => {
       addTaskToUl(task, index);
