@@ -5,17 +5,18 @@ import {
   clearMainContent,
  clearTaskUlForCustomProjects } from "./clearContent";
 import { addTaskToTodoListArray, todoList } from "./addTask";
-import { sortTasks, todayTasks } from "./sortTasksByDueDate";
+import { sortTasks } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
 import { addProjectsToArray, projects } from "./addProject";
 import createCustomProject from "../components/customProjectsSection/createCustomProject";
 import deleteModal from "../components/deleteModal/deleteModal";
-import { deleteTask, taskElement } from "./deleteTask";
-import { addTaskToUl, taskLi  } from "./addTaskToUl";
+import { deleteTask } from "./deleteTask";
+import { addTaskToUl  } from "./addTaskToUl";
 import createInfoForm from "../components/infoForm/infoForm";
 import createEditFileForm from "../components/editFileForm/editFileForm";
 import editFile from "./editFile";
 import deleteProject from "./deleteProject";
+import { setCurrentTab } from "./currentTab";
 
 let isFormOpen = false;
 
@@ -170,12 +171,18 @@ function attachEventListenersForCustomProjectsAddTaskForm(uniqueArr) {
 
   mainContent.addEventListener("click", (event)=>{
     if(event.target.classList.contains("project-add-task-icon")){
+      if(isFormOpen){
+        return
+      }
+
       createAddTaskForm();
+      isFormOpen = true;
       const addTaskForm = document.querySelector(".add-task-form");
 
       const cancelBtn = document.querySelector(".form-img");
       cancelBtn.addEventListener("click", ()=>{
         addTaskForm.remove();
+        isFormOpen = false;
       })
 
       const submitBtn = document.querySelector(".form-btn");
@@ -213,6 +220,7 @@ function attachProjectTabEventListeners() {
     if (e.target.classList.contains("custom-project")) {
       const dataIndex = e.target.closest("div").getAttribute("data-index");
       handleProjectTabClick(dataIndex);
+      setCurrentTab("customProject");
     }
   });
 

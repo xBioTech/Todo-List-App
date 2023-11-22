@@ -1,15 +1,15 @@
 
-import createAllSection from "../components/allSection/all";
-import createHome from "../components/homeSection/home";
 import createToday from "../components/todaySection/today";
 import createWeek from "../components/weekSection/thisWeek";
 import { Task , todoList } from "./addTask";
-import { switchTabs,  currentTab } from "./switchTabs";
+import { switchTabs, } from "./switchTabs";
 import { clearMainContent } from "./clearContent";
 import { todayTasks, formattedTodoList, weekTasks , sortTasks } from "./sortTasksByDueDate";
 import { addTaskToUl } from "./addTaskToUl";
-import { renderDeleteModal , attachEventListenersForInfoButton , attachEventListenersForEditButton } from "./eventHandler";
-
+import { renderDeleteModal , attachEventListenersForInfoButton , attachEventListenersForEditButton, attachEventListenersForCustomProjectsAddTaskForm } from "./eventHandler";
+import { projects } from "./addProject";
+import createCustomProject from "../components/customProjectsSection/createCustomProject";
+import { getCurrentTab } from "./currentTab";
 
 function editFile(taskArray, index){
    const formTitleInput = document.getElementById("title");
@@ -37,15 +37,16 @@ function editFile(taskArray, index){
 
       taskArray.splice(index, 1, editedTask);
 
+      const currentTab = getCurrentTab();
 
       if(currentTab === "all"){
          sortTasks();
          clearMainContent();
          renderDeleteModal();
          attachEventListenersForInfoButton(formattedTodoList);
-         attachEventListenersForEditButton();
-         formattedTodoList.forEach((task, index) => {
-            addTaskToUl(task, index);
+         attachEventListenersForEditButton(todoList);
+         formattedTodoList.forEach((task, taskIndex) => {
+            addTaskToUl(task, taskIndex);
           });
       } else if (currentTab === "today"){
          sortTasks();
@@ -53,9 +54,9 @@ function editFile(taskArray, index){
          createToday();
          renderDeleteModal();
          attachEventListenersForInfoButton(todayTasks);
-         attachEventListenersForEditButton();
-         todayTasks.forEach((task, index) => {
-            addTaskToUl(task, index);
+         attachEventListenersForEditButton(todoList);
+         todayTasks.forEach((task, taskIndex) => {
+            addTaskToUl(task, taskIndex);
           });
       } else if(currentTab === "week"){
          sortTasks();
@@ -63,10 +64,23 @@ function editFile(taskArray, index){
          createWeek();
          renderDeleteModal();
          attachEventListenersForInfoButton(weekTasks);
-         attachEventListenersForEditButton();
-         weekTasks.forEach((task, index) => {
-            addTaskToUl(task, index);
+         attachEventListenersForEditButton(todoList);
+         weekTasks.forEach((task, taskIndex) => {
+            addTaskToUl(task, taskIndex);
           });
+      }
+      else if(currentTab === "customProject"){  
+         clearMainContent();
+         const clickedProject = projects[index];
+         createCustomProject(clickedProject);
+         const clickedProjectsArray = clickedProject.uniqueArray;
+         renderDeleteModal(clickedProjectsArray);
+         attachEventListenersForInfoButton(clickedProjectsArray);
+         attachEventListenersForEditButton(clickedProjectsArray);
+         clickedProjectsArray.forEach((task, taskIndex)=>{
+         addTaskToUl(task, taskIndex);
+         });
+         attachEventListenersForCustomProjectsAddTaskForm(clickedProjectsArray);
       }
 
    }

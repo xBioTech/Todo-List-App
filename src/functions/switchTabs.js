@@ -18,8 +18,8 @@ import {
 import createAllSection from "../components/allSection/all";
 import { projects } from "./addProject";
 import { todoList } from "./addTask";
+import { getCurrentTab, setCurrentTab, } from "./currentTab";
 
-let currentTab = "";
 
 function switchTabs() {
   const homeLi = document.querySelector(".home-li");
@@ -36,7 +36,7 @@ function switchTabs() {
   allLi.addEventListener("click", () => {
     clearMainContent();
     createAllSection();
-    currentTab = "all";
+    setCurrentTab("all");
     renderDeleteModal(todoList);
     attachEventListenersForInfoButton(formattedTodoList);
     attachEventListenersForEditButton(todoList);
@@ -49,7 +49,7 @@ function switchTabs() {
   todayLi.addEventListener("click", () => {
     clearMainContent();
     createToday();
-    currentTab = "today";
+    setCurrentTab("today");
     renderDeleteModal(todoList);
     attachEventListenersForInfoButton(todayTasks);
     attachEventListenersForEditButton(todoList);
@@ -62,7 +62,7 @@ function switchTabs() {
   weekLi.addEventListener("click", () => {
     clearMainContent();
     createWeek();
-    currentTab = "week";
+    setCurrentTab("week");
     renderDeleteModal(todoList);
     attachEventListenersForInfoButton(weekTasks);
     attachEventListenersForEditButton(todoList);
@@ -73,5 +73,4 @@ function switchTabs() {
   });
 }
 
-export {switchTabs, 
-  currentTab,};
+export { switchTabs };
