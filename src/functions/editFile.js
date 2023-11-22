@@ -6,10 +6,11 @@ import { switchTabs, } from "./switchTabs";
 import { clearMainContent } from "./clearContent";
 import { todayTasks, formattedTodoList, weekTasks , sortTasks } from "./sortTasksByDueDate";
 import { addTaskToUl } from "./addTaskToUl";
-import { renderDeleteModal , attachEventListenersForInfoButton , attachEventListenersForEditButton, attachEventListenersForCustomProjectsAddTaskForm } from "./eventHandler";
+import { renderDeleteModal , attachEventListenersForInfoButton , attachEventListenersForEditButton, attachEventListenersForCustomProjectsAddTaskForm , handleProjectTabClick } from "./eventHandler";
 import { projects } from "./addProject";
 import createCustomProject from "../components/customProjectsSection/createCustomProject";
 import { getCurrentTab } from "./currentTab";
+import { getCustomProjectDataIndex } from "./customProjectDataIndex";
 
 function editFile(taskArray, index){
    const formTitleInput = document.getElementById("title");
@@ -38,6 +39,7 @@ function editFile(taskArray, index){
       taskArray.splice(index, 1, editedTask);
 
       const currentTab = getCurrentTab();
+      const customProjectDataIndex = getCustomProjectDataIndex();
 
       if(currentTab === "all"){
          sortTasks();
@@ -70,17 +72,7 @@ function editFile(taskArray, index){
           });
       }
       else if(currentTab === "customProject"){  
-         clearMainContent();
-         const clickedProject = projects[index];
-         createCustomProject(clickedProject);
-         const clickedProjectsArray = clickedProject.uniqueArray;
-         renderDeleteModal(clickedProjectsArray);
-         attachEventListenersForInfoButton(clickedProjectsArray);
-         attachEventListenersForEditButton(clickedProjectsArray);
-         clickedProjectsArray.forEach((task, taskIndex)=>{
-         addTaskToUl(task, taskIndex);
-         });
-         attachEventListenersForCustomProjectsAddTaskForm(clickedProjectsArray);
+         handleProjectTabClick(customProjectDataIndex);
       }
 
    }

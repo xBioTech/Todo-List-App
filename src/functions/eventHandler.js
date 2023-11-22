@@ -17,6 +17,7 @@ import createEditFileForm from "../components/editFileForm/editFileForm";
 import editFile from "./editFile";
 import deleteProject from "./deleteProject";
 import { setCurrentTab } from "./currentTab";
+import { setCustomProjectDataIndex } from "./customProjectDataIndex";
 
 let isFormOpen = false;
 
@@ -198,32 +199,31 @@ function attachEventListenersForCustomProjectsAddTaskForm(uniqueArr) {
   })
 }
 
+
+function handleProjectTabClick(index) {
+  clearMainContent();
+  const clickedProject = projects[index];
+  createCustomProject(clickedProject);
+  const clickedProjectsArray = clickedProject.uniqueArray;
+  renderDeleteModal(clickedProjectsArray);
+  attachEventListenersForInfoButton(clickedProjectsArray);
+  attachEventListenersForEditButton(clickedProjectsArray);
+  clickedProjectsArray.forEach((task, taskIndex)=>{
+    addTaskToUl(task, taskIndex);
+  });
+  attachEventListenersForCustomProjectsAddTaskForm(clickedProjectsArray);
+}
+
 function attachProjectTabEventListeners() {
-
-  function handleProjectTabClick(index) {
-    clearMainContent();
-    const clickedProject = projects[index];
-    createCustomProject(clickedProject);
-    const clickedProjectsArray = clickedProject.uniqueArray;
-    renderDeleteModal(clickedProjectsArray);
-    attachEventListenersForInfoButton(clickedProjectsArray);
-    attachEventListenersForEditButton(clickedProjectsArray);
-    clickedProjectsArray.forEach((task, taskIndex)=>{
-      addTaskToUl(task, taskIndex);
-    });
-    attachEventListenersForCustomProjectsAddTaskForm(clickedProjectsArray);
-  }
-
   const nav = document.querySelector(".nav");
 
   nav.addEventListener("click", (e) => {
     if (e.target.classList.contains("custom-project")) {
-      const dataIndex = e.target.closest("div").getAttribute("data-index");
+      const dataIndex = setCustomProjectDataIndex(e.target.closest("div").getAttribute("data-index"));
       handleProjectTabClick(dataIndex);
       setCurrentTab("customProject");
     }
   });
-
 
 }
 
@@ -272,4 +272,5 @@ export {
   attachEventListenersForEditButton,
   attachEventListenersForDeleteProjects,
   attachEventListenersForCustomProjectsAddTaskForm, // no need to export
+  handleProjectTabClick,
 };

@@ -18,7 +18,7 @@ import {
 import createAllSection from "../components/allSection/all";
 import { projects } from "./addProject";
 import { todoList } from "./addTask";
-import { getCurrentTab, setCurrentTab, } from "./currentTab";
+import { setCurrentTab, } from "./currentTab";
 
 
 function switchTabs() {
