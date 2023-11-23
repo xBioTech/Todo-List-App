@@ -53,3 +53,170 @@ body {
     }
   }
 }
+
+@media only screen and (min-width: 1200px){
+
+  #content{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    .nav{
+      grid-row-start: 1;
+      grid-row-end: 5;
+    }
+
+    .header{
+      grid-column-start: 2;
+      grid-column-end: 5;
+      max-height: 30%;
+    }
+
+    .main-content{
+      display: grid;
+      grid-template-rows: 0.1fr 0.1fr 0.1fr;
+      grid-template-columns: 0.3fr;
+      grid-row-start: 2;
+      grid-row-end: 5;
+      grid-column-start: 2;
+      grid-column-end: 5;
+
+      .headline-container{
+        margin-top: 0;
+        img{
+          max-width: 25%;
+        }
+      }
+
+      .headline-container-all{
+        margin-top: 0;
+        img{
+          max-width: 25%;
+        }
+      }
+
+      .all-tasks-div{
+        font-size: 1.3rem;
+      }
+
+      .headline-container-today{
+        margin-top: 0;
+        img{
+          max-width: 25%;
+        }
+      }
+
+      .task-headline-div{
+        font-size: 1.3rem;
+        margin-top: 0;
+      }
+
+      .headline-container-week{
+        margin-top: 0;
+        img{
+          max-width: 25%;
+        }
+      }
+      .project-headline-div{
+        margin: 0 auto;
+      }
+    }
+    .home-btn-div{
+      grid-row-start: 2;
+    }
+  }
+
+  .add-task-form{
+    left: 62%;
+  }
+  .info-form{
+    left: 62%;
+  }
+  .edit-form{
+    left: 62%;
+  }
+
+  .add-project-form{
+    max-width: 30%;
+    top: 42%;
+    left: 62%;
+  }
+
+  .delete-modal{
+    max-width: 30%;
+    margin-left: 15em;
+    margin-bottom: 5em;
+    margin-top: -5em;
+  }
+
+}
+
+@media only screen and (min-width: 1900px){
+  #content{
+    grid-template-columns: 0.7fr 1fr 1fr 1fr;
+    grid-template-rows: 0.7fr 1fr 1fr 1fr;
+
+
+  .main-content{
+    .headline-container{
+      img{
+        max-width: 16%;
+      }
+    }
+
+    .home-btn-div{
+      margin: 0 auto;
+    }
+
+    .headline-container-all{
+      img{
+        max-width: 16%;
+      }
+    }
+
+    .headline-container-today{
+      img{
+        max-width: 16%;
+      }
+    }
+
+    .headline-container-week{
+      img{
+        max-width: 16%;
+      }
+    }
+
+    .project-btn-div{
+        margin: 0 auto;
+    }
+  }
+  }
+  .add-task-form{
+    top: 42%;
+    left: 60%;
+  }
+
+  .info-form{
+    top: 42%;
+    left: 60%;
+  }
+  .edit-form{
+    top: 42%;
+    left: 60%;
+  }
+
+  .add-project-form{
+    max-width: 30%;
+    top: 42%;
+    left: 60%;
+  }
+
+  .delete-modal{
+    max-width: 25%;
+    margin-left: 10em;
+    margin-bottom: 5em;
+    margin-top: -5em;
+  }
+}
