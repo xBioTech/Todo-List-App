@@ -4,7 +4,7 @@ function deleteModal(element) {
   const contentDiv = document.getElementById("content");
 
   const deleteModalDiv = document.createElement("div");
-  deleteModalDiv.classList.add("delete-modal");
+  deleteModalDiv.classList.add("delete-modal", "delete-opened");
 
   const deleteModalHeader = document.createElement("div");
   deleteModalHeader.classList.add("delete-modal-header");

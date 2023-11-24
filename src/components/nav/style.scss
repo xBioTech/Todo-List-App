@@ -4,6 +4,31 @@ $nav-background: #f7f7f7;
 $text-color: #757575;
 $hover-state: #3498db;
 
+@keyframes rollOut {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rollIn {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+.opened{
+  animation: rollOut 1s ease-in-out;
+}
+.closed{
+  animation: rollIn 1s ease-in-out;
+}
 .nav {
   display: flex;
   flex-direction: column;
@@ -112,3 +137,4 @@ $hover-state: #3498db;
     }
   }
 }
+

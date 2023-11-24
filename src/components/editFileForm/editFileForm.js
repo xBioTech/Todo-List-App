@@ -4,7 +4,7 @@ function createEditFileForm() {
   const contentDiv = document.getElementById("content");
   const form = document.createElement("form");
   form.setAttribute("action", "get");
-  form.classList.add("edit-form");
+  form.classList.add("edit-form", "edit-opened");
 
   const formHeaderContainer = document.createElement("div");
   formHeaderContainer.classList.add("form-header-container");

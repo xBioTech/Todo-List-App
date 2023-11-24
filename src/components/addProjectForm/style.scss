@@ -2,6 +2,35 @@ $text-color: #757575;
 $header-color: #3498db;
 $bg-color: #ffffff;
 
+@keyframes project-animation-roll-out{
+0%{
+  
+  transform: translate(-50%, -100%);
+}
+
+100%{
+  
+  transform: translate(-50%, -50%);
+}
+}
+
+@keyframes project-animation-roll-in{
+  0%{
+    transform: translate(-50%, -50%);
+  }
+
+  100%{
+    transform: translate(-50%, -100%);
+  }
+}
+
+.add-project-form-opened{
+  animation: project-animation-roll-out .5s ease-in-out;
+}
+
+.add-project-form-closed{
+  animation: project-animation-roll-in .5s ease-in-out;
+}
 
 .add-project-form{
     width: 100%;

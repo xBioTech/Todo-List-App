@@ -1,0 +1,29 @@
+@keyframes info-animation-roll-out{
+    0%{
+      
+      transform: translate(-50%, -100%);
+    }
+    
+    100%{
+      
+      transform: translate(-50%, -50%);
+    }
+    }
+    
+    @keyframes info-animation-roll-in{
+      0%{
+        transform: translate(-50%, -50%);
+      }
+    
+      100%{
+        transform: translate(-50%, -100%);
+      }
+    }
+    
+    .info-opened{
+      animation: delete-animation-roll-out .5s ease-in-out;
+    }
+    
+    .info-closed{
+      animation: delete-animation-roll-in .5s ease-in-out;
+    }

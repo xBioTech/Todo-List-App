@@ -6,6 +6,36 @@ $bg-color: #ffffff;
   position: relative;
 }
 
+@keyframes delete-animation-roll-out{
+  0%{
+    
+    transform: translate(-50%, -100%);
+  }
+  
+  100%{
+    
+    transform: translate(-50%, -50%);
+  }
+  }
+  
+  @keyframes delete-animation-roll-in{
+    0%{
+      transform: translate(-50%, -50%);
+    }
+  
+    100%{
+      transform: translate(-50%, -100%);
+    }
+  }
+  
+  .delete-opened{
+    animation: delete-animation-roll-out .5s ease-in-out;
+  }
+  
+  .delete-closed{
+    animation: delete-animation-roll-in .5s ease-in-out;
+  }
+
 .delete-modal {
   width: 100%;
   position: absolute;

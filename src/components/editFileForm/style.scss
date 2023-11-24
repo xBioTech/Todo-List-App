@@ -2,6 +2,36 @@ $header-color: #3498db;
 $text-color: #757575;
 $bg-color: #ffffff;
 
+@keyframes edit-form-animation-roll-out{
+  0%{
+    
+    transform: translate(-50%, -100%);
+  }
+  
+  100%{
+    
+    transform: translate(-50%, -50%);
+  }
+  }
+  
+  @keyframes edit-form-animation-roll-in{
+    0%{
+      transform: translate(-50%, -50%);
+    }
+  
+    100%{
+      transform: translate(-50%, -100%);
+    }
+  }
+  
+  .edit-opened{
+    animation: delete-animation-roll-out .5s ease-in-out;
+  }
+  
+  .edit-closed{
+    animation: delete-animation-roll-in .5s ease-in-out;
+  }
+
 .form-footer-div{
     display: flex;
     justify-content: flex-end;

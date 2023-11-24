@@ -5,7 +5,7 @@ const contentDiv = document.getElementById("content");
 
 const projectForm = document.createElement("form");
 projectForm.setAttribute("action", "get");
-projectForm.classList.add("add-project-form");
+projectForm.classList.add("add-project-form", "add-project-form-opened");
 
 const projectFormHeaderContainer = document.createElement("div");
 projectFormHeaderContainer.classList.add("project-form-header");

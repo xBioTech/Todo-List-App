@@ -11,7 +11,7 @@ function createNav() {
   navDivTop.classList.add("nav-div-top");
   const navDivBottom = document.createElement("div");
   navDivBottom.classList.add("nav-div-bottom");
-  navDiv.classList.add("nav");
+  navDiv.classList.add("nav", "opened");
 
   const unorderedListTop = document.createElement("ul");
   const unorderedListBottom = document.createElement("ul");

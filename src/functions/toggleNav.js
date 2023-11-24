@@ -1,7 +1,7 @@
 import { removeNavOnMobile } from "./clearContent";
 import createNav from "../components/nav/nav";
 import { switchTabs } from "./switchTabs";
-import { attachEventListenersForAddProjectForm } from "./eventHandler";
+import { attachEventListenersForAddProjectForm , attachProjectTabEventListeners, attachEventListenersForDeleteProjects } from "./eventHandler";
 
 function toggleNav(){
     let isNavOpen = true;
@@ -10,7 +10,12 @@ function toggleNav(){
     
     hamburger.addEventListener("click", ()=>{
         if(isNavOpen){
-            removeNavOnMobile();
+            const nav = document.querySelector(".nav");
+            nav.classList.remove("opened");
+            nav.classList.add("closed");
+            setTimeout(()=>{
+                removeNavOnMobile();
+            }, 1000);
             isNavOpen = false;
         } else {
             createNav();
@@ -20,6 +25,8 @@ function toggleNav(){
             header.insertAdjacentElement("afterend", nav);  
             switchTabs();
             attachEventListenersForAddProjectForm();
+            attachProjectTabEventListeners();
+            attachEventListenersForDeleteProjects();
         }
     })
 }

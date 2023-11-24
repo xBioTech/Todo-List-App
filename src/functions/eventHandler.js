@@ -36,15 +36,23 @@ function renderDeleteModal(taskArray) {
     const cancelBtn = document.querySelector(".cancel-btn");
     const deleteModalDiv = document.querySelector(".delete-modal");
     cancelBtn.addEventListener("click", () => {
-      deleteModalDiv.remove();
+      deleteModalDiv.classList.remove("delete-opened");
+      deleteModalDiv.classList.add("delete-closed");
+      setTimeout(() => {
+        deleteModalDiv.remove();
+      }, 500);
       isFormOpen = false;
     });
 
     const deleteTaskBtn = document.querySelector(".modal-delete-btn");
     deleteTaskBtn.addEventListener("click", () => {
       const dataIndex = event.target.closest("li").getAttribute("data-index");
-      deleteTask(taskArray, dataIndex);
-      deleteModalDiv.remove();
+      deleteModalDiv.classList.remove("delete-opened");
+      deleteModalDiv.classList.add("delete-closed");
+      setTimeout(() => {
+        deleteModalDiv.remove();
+        deleteTask(taskArray, dataIndex);
+      }, 500);
       isFormOpen = false;
     });
   });
@@ -69,7 +77,11 @@ function attachEventListenersForInfoButton(taskArray) {
       const exitIcon = document.querySelector(".form-img");
       const infoForm = document.querySelector(".info-form");
       exitIcon.addEventListener("click", () => {
-        infoForm.remove();
+        infoForm.classList.remove(".info-opened");
+        infoForm.classList.add("info-closed");
+        setTimeout(() => {
+          infoForm.remove();
+        }, 500);
         isFormOpen = false;
       });
     }
@@ -92,14 +104,22 @@ function attachEventListenersForEditButton(taskArray) {
       const exitIcon = document.querySelector(".form-img");
       const editForm = document.querySelector(".edit-form");
       exitIcon.addEventListener("click", ()=>{
-        editForm.remove();
+        editForm.classList.remove("edit-opened");
+        editForm.classList.add("edit-closed");
+        setTimeout(() => {
+          editForm.remove();
+        }, 500);
         isFormOpen = false;
       })
 
       const cancelBtn = document.querySelector(".cancel-changes-btn");
       cancelBtn.addEventListener("click", (e)=>{
         e.preventDefault();
-        editForm.remove();
+        editForm.classList.remove("edit-opened");
+        editForm.classList.add("edit-closed");
+        setTimeout(() => {
+          editForm.remove();
+        }, 500);
         isFormOpen = false;
       })
 
@@ -127,7 +147,12 @@ function attachEventListenersForAddTaskForm() {
     const exitIcon = document.querySelector(".form-img");
 
     exitIcon.addEventListener("click", () => {
-      removeAddTaskFormContent();
+      const addForm = document.querySelector(".add-task-form");
+      addForm.classList.remove("add-form-opened");
+      addForm.classList.add("add-form-closed");
+      setTimeout(() => {
+        removeAddTaskFormContent();
+      }, 500);
       isFormOpen = false;
     });
     const formBtn = document.querySelector(".form-btn");
@@ -153,7 +178,12 @@ function attachEventListenersForAddProjectForm() {
     const projectFormExitIcon = document.querySelector(".project-form-img");
 
     projectFormExitIcon.addEventListener("click", () => {
-      removeAddProjectForm();
+      const projectForm = document.querySelector(".add-project-form");
+      projectForm.classList.remove("add-project-form-opened");
+      projectForm.classList.add("add-project-form-closed");
+      setTimeout(() => {
+        removeAddProjectForm();
+      }, 500);
       isFormOpen = false;
     });
 
@@ -182,7 +212,12 @@ function attachEventListenersForCustomProjectsAddTaskForm(uniqueArr) {
 
       const cancelBtn = document.querySelector(".form-img");
       cancelBtn.addEventListener("click", ()=>{
-        addTaskForm.remove();
+        addTaskForm.classList.remove("add-form-opened");
+        addTaskForm.classList.add("add-form-closed");
+        setTimeout(() => {
+          addTaskForm.remove();
+        }, 500);
+       
         isFormOpen = false;
       })
 
@@ -248,14 +283,23 @@ function attachEventListenersForDeleteProjects(){
     const cancelBtn = document.querySelector(".cancel-btn");
     cancelBtn.addEventListener("click", (event)=>{
       event.preventDefault();
-      deleteModalDiv.remove();
+      deleteModalDiv.classList.remove("delete-opened");
+      deleteModalDiv.classList.add("delete-closed");
+      setTimeout(() => {
+        deleteModalDiv.remove();
+      }, 500);
       isFormOpen = false;
     });
 
     const deleteProjectBtn = document.querySelector(".modal-delete-btn");
     deleteProjectBtn.addEventListener("click", (event)=>{
       event.preventDefault();
-      deleteProject(deleteModalDiv, dataIndex);
+      deleteModalDiv.classList.remove("delete-opened");
+      deleteModalDiv.classList.add("delete-closed");
+      setTimeout(() => {
+        deleteModalDiv.remove();
+        deleteProject(deleteModalDiv, dataIndex);
+      }, 500);
       isFormOpen = false;
     })
     

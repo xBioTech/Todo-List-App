@@ -4,7 +4,7 @@ function createAddTaskForm() {
   const contentDiv = document.getElementById("content");
   const form = document.createElement("form");
   form.setAttribute("action", "get");
-  form.classList.add("add-task-form");
+  form.classList.add("add-task-form", "add-form-opened");
 
   const formHeaderContainer = document.createElement("div");
   formHeaderContainer.classList.add("form-header-container");

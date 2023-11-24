@@ -6,6 +6,36 @@ $bg-color: #ffffff;
   position: relative;
 }
 
+@keyframes add-form-animation-roll-out{
+  0%{
+    
+    transform: translate(-50%, -100%);
+  }
+  
+  100%{
+    
+    transform: translate(-50%, -50%);
+  }
+  }
+  
+  @keyframes add-form-animation-roll-in{
+    0%{
+      transform: translate(-50%, -50%);
+    }
+  
+    100%{
+      transform: translate(-50%, -100%);
+    }
+  }
+  
+  .add-form-opened{
+    animation: delete-animation-roll-out .5s ease-in-out;
+  }
+  
+  .add-form-closed{
+    animation: delete-animation-roll-in .5s ease-in-out;
+  }
+
 form {
   background-color: $bg-color;
   color: $text-color;
