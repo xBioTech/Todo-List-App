@@ -4,7 +4,7 @@ import createWeek from "../components/weekSection/thisWeek";
 import { Task , todoList } from "./addTask";
 import { switchTabs, } from "./switchTabs";
 import { clearMainContent } from "./clearContent";
-import { todayTasks, formattedTodoList, weekTasks , sortTasks } from "./sortTasksByDueDate";
+import { todayTasks, formattedTodoList, weekTasks , sortTasks , } from "./sortTasksByDueDate";
 import { addTaskToUl } from "./addTaskToUl";
 import { renderDeleteModal , attachEventListenersForInfoButton , attachEventListenersForEditButton, attachEventListenersForCustomProjectsAddTaskForm , handleProjectTabClick } from "./eventHandler";
 import { projects } from "./addProject";
@@ -42,7 +42,7 @@ function editFile(taskArray, index){
       const customProjectDataIndex = getCustomProjectDataIndex();
 
       if(currentTab === "all"){
-         sortTasks();
+         sortTasks(todoList);
          clearMainContent();
          renderDeleteModal();
          attachEventListenersForInfoButton(formattedTodoList);
@@ -51,7 +51,7 @@ function editFile(taskArray, index){
             addTaskToUl(task, taskIndex);
           });
       } else if (currentTab === "today"){
-         sortTasks();
+         sortTasks(todoList);
          clearMainContent();
          createToday();
          renderDeleteModal();
@@ -61,7 +61,7 @@ function editFile(taskArray, index){
             addTaskToUl(task, taskIndex);
           });
       } else if(currentTab === "week"){
-         sortTasks();
+         sortTasks(todoList);
          clearMainContent();
          createWeek();
          renderDeleteModal();

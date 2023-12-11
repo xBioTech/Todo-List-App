@@ -5,7 +5,7 @@ import {
   clearMainContent,
  clearTaskUlForCustomProjects } from "./clearContent";
 import { addTaskToTodoListArray, todoList } from "./addTask";
-import { sortTasks } from "./sortTasksByDueDate";
+import { sortTasks , sortCustomTasks, } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
 import { addProjectsToArray, projects } from "./addProject";
 import createCustomProject from "../components/customProjectsSection/createCustomProject";
@@ -159,7 +159,7 @@ function attachEventListenersForAddTaskForm() {
     formBtn.addEventListener("click", (e) => {
       e.preventDefault();
       addTaskToTodoListArray(todoList);
-      sortTasks();
+      sortTasks(todoList);
     });
   });
 }
@@ -197,7 +197,7 @@ function attachEventListenersForAddProjectForm() {
 }
 
 
-function attachEventListenersForCustomProjectsAddTaskForm(uniqueArr) {
+function attachEventListenersForCustomProjectsAddTaskForm(uniqueArray) {
   const mainContent = document.querySelector(".main-content")
 
   mainContent.addEventListener("click", (event)=>{
@@ -224,9 +224,10 @@ function attachEventListenersForCustomProjectsAddTaskForm(uniqueArr) {
       const submitBtn = document.querySelector(".form-btn");
       submitBtn.addEventListener("click", (e)=>{
         e.preventDefault();
-        addTaskToTodoListArray(uniqueArr);
+        addTaskToTodoListArray(uniqueArray);
+        sortCustomTasks(uniqueArray);
         clearTaskUlForCustomProjects();
-        uniqueArr.forEach((task, index) => {
+        uniqueArray.forEach((task, index) => {
           addTaskToUl(task, index);
         });
       })
@@ -240,10 +241,11 @@ function handleProjectTabClick(index) {
   const clickedProject = projects[index];
   createCustomProject(clickedProject);
   const clickedProjectsArray = clickedProject.uniqueArray;
+  sortCustomTasks(clickedProjectsArray);
   renderDeleteModal(clickedProjectsArray);
   attachEventListenersForInfoButton(clickedProjectsArray);
   attachEventListenersForEditButton(clickedProjectsArray);
-  clickedProjectsArray.forEach((task, taskIndex)=>{
+  clickedProjectsArray.forEach((task, taskIndex) => {
     addTaskToUl(task, taskIndex);
   });
   attachEventListenersForCustomProjectsAddTaskForm(clickedProjectsArray);
