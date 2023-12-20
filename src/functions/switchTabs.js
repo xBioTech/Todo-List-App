@@ -19,6 +19,7 @@ import createAllSection from "../components/allSection/all";
 import { projects } from "./addProject";
 import { todoList } from "./addTask";
 import { setCurrentTab, } from "./currentTab";
+import getLocalStorage from "./getLocalStorage";
 
 
 function switchTabs() {
@@ -41,9 +42,21 @@ function switchTabs() {
     attachEventListenersForInfoButton(formattedTodoList);
     attachEventListenersForEditButton(todoList);
     sortTasks(todoList);
-    formattedTodoList.forEach((task, index) => {
-      addTaskToUl(task, index);
-    });
+
+    // does not work because sortTaskByDueDate function is overwriting the arrays
+    // inside the local storage so whenever i click on the allLI event listener
+    // sortTasks() is going to update my localStorage to an empty array
+    const storedTodoList = getLocalStorage("formattedTodoListLocalStorage");
+    if(storedTodoList){
+      storedTodoList.forEach((task, index) => {
+        addTaskToUl(task, index);
+      });
+    } else {
+      formattedTodoList.forEach((task, index) => {
+        addTaskToUl(task, index);
+      });
+    }
+    
   });
 
   todayLi.addEventListener("click", () => {
