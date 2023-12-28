@@ -9,16 +9,6 @@ let formattedTodoList = [];
 
 function sortTasks(arr) {
 
-  const storedFormattedList = getLocalStorage("formattedTodoListLocalStorage"); 
-  const storedTodayList = getLocalStorage("TodayTodoListLocalStorage");
-  const storedWeekList = getLocalStorage("weekTodoListLocalStorage");
-
-
-  /*
-  formattedTodoList = storedFormattedList || formattedTodoList;
-  todayTasks = storedTodayList || todayTasks;
-  weekTasks = storedWeekList || weekTasks;
-*/
 
   arr.sort((a, b) => a.dueDate - b.dueDate);
   arr.forEach((task) => {
@@ -53,29 +43,6 @@ function sortTasks(arr) {
 
   todayTasks.sort((a, b) => a.dueDate - b.dueDate);
   weekTasks.sort((a, b) => a.dueDate - b.dueDate);
-
-
-  if (!storedFormattedList) {
-    setLocalStorage("formattedTodoListLocalStorage", formattedTodoList);
-  }  else {
-    const stringifyStored = storedFormattedList.map(JSON.stringify);
-    const stringifyFormatted = formattedTodoList.map(JSON.stringify);
-    
-    const mergedArrays = new Set([...stringifyStored, ...stringifyFormatted]);
-
-    const uniqueMergedArray = Array.from(mergedArrays).map(JSON.parse);
-    
-    setLocalStorage("formattedTodoListLocalStorage", uniqueMergedArray);
-  }
-
-  if (!storedTodayList) {
-    setLocalStorage("TodayTodoListLocalStorage", todayTasks);
-  }
-
-  if (!storedWeekList) {
-    setLocalStorage("weekTodoListLocalStorage", weekTasks);
-  }
-
 
 
   console.log("Today's Tasks:", todayTasks);

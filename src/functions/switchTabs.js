@@ -20,6 +20,7 @@ import { projects } from "./addProject";
 import { todoList } from "./addTask";
 import { setCurrentTab, } from "./currentTab";
 import getLocalStorage from "./getLocalStorage";
+import { populateLocalStorage } from "./updateLocalStorage";
 
 
 function switchTabs() {
@@ -42,10 +43,8 @@ function switchTabs() {
     attachEventListenersForInfoButton(formattedTodoList);
     attachEventListenersForEditButton(todoList);
     sortTasks(todoList);
+    populateLocalStorage("formattedTodoListLocalStorage", formattedTodoList);
 
-    // does not work because sortTaskByDueDate function is overwriting the arrays
-    // inside the local storage so whenever i click on the allLI event listener
-    // sortTasks() is going to update my localStorage to an empty array
     const storedTodoList = getLocalStorage("formattedTodoListLocalStorage");
     if(storedTodoList){
       storedTodoList.forEach((task, index) => {
@@ -67,6 +66,7 @@ function switchTabs() {
     attachEventListenersForInfoButton(todayTasks);
     attachEventListenersForEditButton(todoList);
     sortTasks(todoList);
+    populateLocalStorage("TodayTodoListLocalStorage", todayTasks);
     todayTasks.forEach((task, index) => {
       addTaskToUl(task, index);
     });
@@ -80,6 +80,7 @@ function switchTabs() {
     attachEventListenersForInfoButton(weekTasks);
     attachEventListenersForEditButton(todoList);
     sortTasks(todoList);
+    populateLocalStorage("weekTodoListLocalStorage", weekTasks);
     weekTasks.forEach((task, index) => {
       addTaskToUl(task, index);
     });

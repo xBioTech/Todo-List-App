@@ -1,4 +1,5 @@
 import addProjectToUl from "./addProjectToUl";
+import setLocalStorage from "./setLocalStorage";
 
 class Project {
   constructor(name) {
@@ -30,7 +31,8 @@ function addProjectsToArray() {
     */
 
     const index = projects.indexOf(newProject);
-    
+  
+      setLocalStorage("projectsLocalStorage", newProject);
       addProjectToUl(newProject, index);
    
   }
