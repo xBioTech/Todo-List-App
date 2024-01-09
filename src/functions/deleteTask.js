@@ -1,4 +1,5 @@
-import setLocalStorage from "./setLocalStorage";
+import { sortTasks } from "./sortTasksByDueDate";
+
 
 let taskElement;
 
@@ -7,6 +8,8 @@ function deleteTask(taskArray, index) {
   taskElement.remove();
   taskArray.splice(index, 1);
 
+
+  sortTasks(taskArray);
 }
 
 export { taskElement, deleteTask };

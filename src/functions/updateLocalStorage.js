@@ -1,3 +1,4 @@
+import { Task } from "./addTask";
 import getLocalStorage from "./getLocalStorage";
 import setLocalStorage from "./setLocalStorage";
 
@@ -29,4 +30,12 @@ setLocalStorage(key, arr);
 
 }
 
-export { populateLocalStorage };
+
+function updateLocalStorage(key, taskArray) {
+
+  localStorage.clear();
+
+  setLocalStorage(key, taskArray);
+}
+
+export { populateLocalStorage, updateLocalStorage };

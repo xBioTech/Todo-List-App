@@ -5,7 +5,7 @@ import {
   clearMainContent,
  clearTaskUlForCustomProjects } from "./clearContent";
 import { addTaskToTodoListArray, todoList } from "./addTask";
-import { sortTasks , sortCustomTasks, } from "./sortTasksByDueDate";
+import { sortTasks , sortCustomTasks, formattedTodoList, todayTasks, weekTasks, } from "./sortTasksByDueDate";
 import addProjectForm from "../components/addProjectForm/addProjectForm";
 import { addProjectsToArray, projects } from "./addProject";
 import createCustomProject from "../components/customProjectsSection/createCustomProject";
@@ -16,8 +16,9 @@ import createInfoForm from "../components/infoForm/infoForm";
 import createEditFileForm from "../components/editFileForm/editFileForm";
 import editFile from "./editFile";
 import deleteProject from "./deleteProject";
-import { setCurrentTab } from "./currentTab";
+import { setCurrentTab , getCurrentTab } from "./currentTab";
 import { setCustomProjectDataIndex } from "./customProjectDataIndex";
+import { updateLocalStorage } from "./updateLocalStorage";
 
 let isFormOpen = false;
 
@@ -52,6 +53,15 @@ function renderDeleteModal(taskArray) {
       setTimeout(() => {
         deleteModalDiv.remove();
         deleteTask(taskArray, dataIndex);
+
+        const currentTab = getCurrentTab();
+        if(currentTab === "all") {
+          updateLocalStorage("formattedTodoListLocalStorage", formattedTodoList);
+        } else if(currentTab === "today") {
+          updateLocalStorage("TodayTodoListLocalStorage", todayTasks);
+        } else if(currentTab === "week") {
+          updateLocalStorage("weekTodoListLocalStorage", weekTasks);
+        }
       }, 500);
       isFormOpen = false;
     });

@@ -44,7 +44,7 @@ function sortTasks(arr) {
   todayTasks.sort((a, b) => a.dueDate - b.dueDate);
   weekTasks.sort((a, b) => a.dueDate - b.dueDate);
 
-
+  console.log(todoList);
   console.log("Today's Tasks:", todayTasks);
   console.log("Week's Tasks:", weekTasks);
 }

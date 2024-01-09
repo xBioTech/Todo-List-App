@@ -67,9 +67,18 @@ function switchTabs() {
     attachEventListenersForEditButton(todoList);
     sortTasks(todoList);
     populateLocalStorage("TodayTodoListLocalStorage", todayTasks);
-    todayTasks.forEach((task, index) => {
-      addTaskToUl(task, index);
-    });
+
+    const storedTodoList = getLocalStorage("TodayTodoListLocalStorage");
+
+    if(storedTodoList){
+      storedTodoList.forEach((task, index)=>{
+        addTaskToUl(task, index);
+      })
+    } else {
+      todayTasks.forEach((task, index) => {
+        addTaskToUl(task, index);
+      });
+    }
   });
 
   weekLi.addEventListener("click", () => {
@@ -81,9 +90,18 @@ function switchTabs() {
     attachEventListenersForEditButton(todoList);
     sortTasks(todoList);
     populateLocalStorage("weekTodoListLocalStorage", weekTasks);
-    weekTasks.forEach((task, index) => {
-      addTaskToUl(task, index);
-    });
+
+    const storedTodoList = getLocalStorage("weekTodoListLocalStorage");
+
+    if(storedTodoList){
+      storedTodoList.forEach((task, index)=>{
+        addTaskToUl(task, index);
+      })
+    } else {
+      weekTasks.forEach((task, index) => {
+        addTaskToUl(task, index);
+      });
+    }
   });
 }
 
