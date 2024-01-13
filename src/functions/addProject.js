@@ -1,5 +1,4 @@
 import addProjectToUl from "./addProjectToUl";
-import getLocalStorage from "./getLocalStorage";
 import setLocalStorage from "./setLocalStorage";
 
 class Project {
@@ -35,16 +34,6 @@ function addProjectsToArray() {
   
       setLocalStorage("projectsLocalStorage", projects);
 
-      const storedProjects = getLocalStorage("projectsLocalStorage");
-
-    // how to work with array.forEach instead of normal forEach
-    // to render projects in DOM if there are already stored ones
-
-      if(storedProjects){
-        storedProjects.array.forEach(element => {
-          
-        });
-      }
 
       addProjectToUl(newProject, index);
    

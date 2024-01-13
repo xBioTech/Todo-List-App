@@ -2,13 +2,10 @@
 import createToday from "../components/todaySection/today";
 import createWeek from "../components/weekSection/thisWeek";
 import { Task , todoList } from "./addTask";
-import { switchTabs, } from "./switchTabs";
 import { clearMainContent } from "./clearContent";
 import { todayTasks, formattedTodoList, weekTasks , sortTasks , } from "./sortTasksByDueDate";
 import { addTaskToUl } from "./addTaskToUl";
 import { renderDeleteModal , attachEventListenersForInfoButton , attachEventListenersForEditButton, attachEventListenersForCustomProjectsAddTaskForm , handleProjectTabClick } from "./eventHandler";
-import { projects } from "./addProject";
-import createCustomProject from "../components/customProjectsSection/createCustomProject";
 import { getCurrentTab } from "./currentTab";
 import { getCustomProjectDataIndex } from "./customProjectDataIndex";
 

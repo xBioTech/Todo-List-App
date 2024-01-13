@@ -61,6 +61,8 @@ function renderDeleteModal(taskArray) {
           updateLocalStorage("TodayTodoListLocalStorage", todayTasks);
         } else if(currentTab === "week") {
           updateLocalStorage("weekTodoListLocalStorage", weekTasks);
+        } else if(currentTab === "customProject"){
+          updateLocalStorage("projectsLocalStorage", projects);
         }
       }, 500);
       isFormOpen = false;
@@ -311,6 +313,8 @@ function attachEventListenersForDeleteProjects(){
       setTimeout(() => {
         deleteModalDiv.remove();
         deleteProject(deleteModalDiv, dataIndex);
+        updateLocalStorage("projectsLocalStorage", projects);
+
       }, 500);
       isFormOpen = false;
     })

@@ -1,7 +1,5 @@
 import { parseISO, isSameDay, isSameWeek, format } from "date-fns";
 import { todoList } from "./addTask";
-import setLocalStorage from "./setLocalStorage";
-import getLocalStorage from "./getLocalStorage";
 
 let todayTasks = [];
 let weekTasks = [];

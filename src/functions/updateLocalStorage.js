@@ -1,4 +1,3 @@
-import { Task } from "./addTask";
 import getLocalStorage from "./getLocalStorage";
 import setLocalStorage from "./setLocalStorage";
 

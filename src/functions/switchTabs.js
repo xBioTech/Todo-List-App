@@ -16,7 +16,6 @@ import {
   formattedTodoList,
 } from "./sortTasksByDueDate";
 import createAllSection from "../components/allSection/all";
-import { projects } from "./addProject";
 import { todoList } from "./addTask";
 import { setCurrentTab, } from "./currentTab";
 import getLocalStorage from "./getLocalStorage";
